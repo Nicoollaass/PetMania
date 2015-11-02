@@ -7,95 +7,48 @@ package br.com.petmania.cadastros.model;
 
 import java.sql.Date;
 
-
-
 /**
  *
- * @author felipe.smagalhaes
+ * @author Hp
  */
-public class Cliente {
-    
-    private String nome = "";
-    private int idade = 0;
-    private String data_nascimento = "";
-    private String email = "";
-    private String cpf = "";
-    private String endereco = "";
-    private String telefone = "";
-    private char sexo;
+public class Cliente extends Pessoa 
+{
+    private final int status_inativo = 0; //Variavel utilizada para inativar um cliente. Valor fixo 0
+    private int id_cliente = 0;
+    private Date data_inclusao; //Campo utilizado apenas para consulta, nao utilizamos para gravar no banco.
+
     
     
-    
+    public int getStatus_Inativo(){
+        return status_inativo;
+    }
+            
     /**
-     * @return the nome
+     * @return the id_cliente
      */
-    public String getNome() {
-        return nome;
+    public int getId_cliente() {
+        return id_cliente;
     }
 
     /**
-     * @param nome the nome to set
+     * @param id_cliente the id_cliente to set
      */
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     /**
-     * @return the idade
+     * @return the data_inclusao
      */
-    public int getIdade() {
-        return idade;
+    public Date getData_inclusao() {
+        return data_inclusao;
     }
 
     /**
-     * @param idade the idade to set
+     * @param data_inclusao the data_inclusao to set
      */
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setData_inclusao(Date data_inclusao) {
+        this.data_inclusao = data_inclusao;
     }
-
-    /**
-     * @return the data_nascimento
-     */
-    public String getData_nascimento() {
-        return data_nascimento;
-    }
-
-    /**
-     * @param data_nascimento the data_nascimento to set
-     */
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return the cpf
-     */
-    public String getCpf() {
-        return cpf;
-    }
-
-    /**
-     * @param cpf the cpf to set
-     */
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    
-    
     
 }
