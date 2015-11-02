@@ -1,10 +1,6 @@
 br\com\senac\petmania\cadastros\logica\Logica.class
-br\com\petmania\cadastros\dao\ConnectionFactory.class
-br\com\petmania\cadastros\model\Cliente.class
-br\com\petmania\cadastros\control\ControllerServlet.class
-br\com\petmania\cadastros\dao\DAOLogin.class
-br\com\senac\petmania\cadastros\logica\LogicHome.class
-br\com\senac\petmania\cadastros\logica\LogicLogin.class
-br\com\petmania\cadastros\model\Login.class
 br\com\petmania\cadastros\model\Funcionario.class
 br\com\petmania\cadastros\model\Animal.class
+br\com\petmania\cadastros\model\Cliente.class
+br\com\petmania\cadastros\control\ControllerServlet.class
+br\com\petmania\cadastros\dao\ConnectionFactory.class
