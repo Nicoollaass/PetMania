@@ -2,6 +2,11 @@ body,html {
 	width: 100%;
 	height: 100%;
 }
+
+#main-content, .wrapper {
+    width: 100%;
+    height: 100%;
+}
 .content-login {
 	position: absolute;
 	left: 0;
@@ -25,7 +30,7 @@ body,html {
 	width: 100%;
 	height: 100%;
 	background-image: url(../img/fundo.png);
-	background-size: 100%; 
+	background-size: 100% 100%; 
 }
 
 .form-horizontal > div {

@@ -4,23 +4,29 @@
     Author     : nicolas.ssantos
 --%>
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Login</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/bootstrap.min.css"/>"/>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/bootstrap-theme.min.css"/>"/>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<t:defaultTemplate>
+
+    <jsp:attribute name="paginaTitulo">
+        Login
+    </jsp:attribute>
+
+    <jsp:attribute name="paginaHead">
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/login.css"/>"/>
-    </head>
-    <body>
+    </jsp:attribute>
+
+    <jsp:attribute name="paginaBottom">
+
+    </jsp:attribute>
+
+    <jsp:body>
         <section class="container-fluid">
             <div class="content-login">
                 <form class="form-horizontal" action="<c:url value="/sistema?acao=Login"/>" method="POST">
-                    <h1 class="title"><img src="assets/img/icon/cadeado.png" alt="">Login</h1>
+                    <h1 class="title"><img src="<c:url value="assets/img/icon/cadeado.png"/>" alt="">Login</h1>
                     <div class="form-group">
                         <div>
                             <input type="text" name="loginUsuario" class="form-control" id="inputEmail3" placeholder="Usuário">
@@ -48,7 +54,8 @@
                     </div>
                 </form>
             </div>
-            <img src="assets/img/icon/dog.png" alt="" class="icon-animal">
+            <img src="<c:url value="/assets/img/icon/dog.png"/>" alt="" class="icon-animal">
         </section>
-    </body>
-</html>
+    </jsp:body>
+
+</t:defaultTemplate>
