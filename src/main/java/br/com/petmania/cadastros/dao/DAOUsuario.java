@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.petmania.cadastros.dao;
-import br.com.petmania.cadastros.model.Login;
+import br.com.petmania.cadastros.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,28 +16,28 @@ import java.util.logging.Logger;
  *
  * @author Nicolas
  */
-public class DAOLogin {
+public class DAOUsuario {
     
     private Connection con;
     
-    public DAOLogin() {
+    public DAOUsuario() {
         try {
             this.con = new ConnectionFactory().getConnection();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DAOLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public Login getUsuario(String usuario,String senha) throws SQLException{
-        Login user = null;
+    public Usuario getUsuario(String usuario,String senha) throws SQLException{
+        Usuario user = null;
         try {
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM LOGIN WHERE USUARIO=? AND SENHA=?");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM USUARIO WHERE USUARIO=? AND SENHA=?");
             stmt.setString(1,usuario);
             stmt.setString(2,senha);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
-                user = new Login();
-                user.setId(rs.getString("ID_LOGIN"));
+                user = new Usuario();
+                user.setId(rs.getString("ID_USUARIO"));
                 user.setUsuario(rs.getString("USUARIO"));
                 user.setSenha(rs.getString("SENHA"));
                 user.setAcesso(rs.getInt("ACESSO"));

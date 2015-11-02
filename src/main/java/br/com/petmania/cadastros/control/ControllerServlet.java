@@ -5,8 +5,8 @@
  */
 package br.com.petmania.cadastros.control;
 
-import br.com.petmania.cadastros.dao.DAOLogin;
-import br.com.petmania.cadastros.model.Login;
+import br.com.petmania.cadastros.dao.DAOUsuario;
+import br.com.petmania.cadastros.model.Usuario;
 import br.com.senac.petmania.cadastros.logica.Logica;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,7 +40,7 @@ public class ControllerServlet extends HttpServlet {
         
         String pagina = "/WEB-INF/";
         String parametro = request.getParameter("acao");
-        String nomeDaClasse = "br.com.senac.petmania.cadastros.logica.Logic" + parametro;
+        String nomeDaClasse = "br.com.senac.petmania.cadastros.logica." + parametro;
         
         try {
             Class<?> classe = Class.forName(nomeDaClasse);

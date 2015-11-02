@@ -5,13 +5,13 @@
  */
 package br.com.petmania.cadastros.model;
 
-import br.com.petmania.cadastros.dao.DAOLogin;
+import br.com.petmania.cadastros.dao.DAOUsuario;
 
 /**
  *
  * @author Nicolas
  */
-public class Login {
+public class Usuario {
     private String id;
     private String usuario;
     private String senha;
