@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Nicolas
  */
-public class LogicHome implements Logica {
+public class Home implements Logica {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {

@@ -6,8 +6,8 @@
 package br.com.senac.petmania.cadastros.logica;
 
 
-import br.com.petmania.cadastros.dao.DAOLogin;
-import br.com.petmania.cadastros.model.Login;
+import br.com.petmania.cadastros.dao.DAOUsuario;
+import br.com.petmania.cadastros.model.Usuario;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Nicolas
  */
-public class LogicLogin implements Logica{
+public class Login implements Logica{
     
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -28,8 +28,8 @@ public class LogicLogin implements Logica{
         String pass  = req.getParameter("loginSenha");
         
         if(user != null && pass != null) {
-            DAOLogin daoLogin = new DAOLogin();
-            Login usuario = daoLogin.getUsuario(user, pass);
+            DAOUsuario daoLogin = new DAOUsuario();
+            Usuario usuario = daoLogin.getUsuario(user, pass);
             if(usuario != null) {
                 HttpSession session = req.getSession();  
                 session.setAttribute("usuarioLogado",usuario);
