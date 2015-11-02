@@ -1,6 +1,18 @@
 body,html {
 	height: 100%;
 }
+
+#main-content, .wrapper {
+    width: 100%;
+    height: 100%;
+}
+.space-top {
+    margin-top: 50px;
+}
+
+.space-top > h1 {
+    font-size: 27px;
+}
 /* menu and menu */
 
 .sub-category {

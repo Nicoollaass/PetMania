@@ -43,8 +43,10 @@
     
   </head>
   <body>
-
-    <t:defaultNavbar/>
+    
+    <c:if test="${not empty usuarioLogado}">
+       <t:defaultNavbar/>  
+    </c:if>
     
     <section id="main-content">
       <section class="wrapper">

@@ -16,7 +16,7 @@ public class Home implements Logica {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        return "view/index.html";
+        return "view/home.jsp";
     }
     
 }
