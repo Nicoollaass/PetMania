@@ -1,0 +1,3 @@
+br\com\petmania\cadastros\model\Login.class
+br\com\petmania\cadastros\dao\DAOLogin.class
+br\com\petmania\cadastros\dao\ConnectionFactory.class

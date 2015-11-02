@@ -1,0 +1,77 @@
+body,html {
+	height: 100%;
+}
+/* menu and menu */
+
+.sub-category {
+	display: none;
+}
+
+.config {
+	float: right;
+}
+
+.open-arrow {
+	transform: rotate(90deg);
+}
+
+.style-menu {
+	width: 100%;
+	padding: 0;
+}
+
+.custom-search-form {
+	margin-bottom: 10px;
+}
+.icon-arrow {
+	cursor: pointer;
+}
+.style-menu > li {
+	padding: 15px;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: black;
+}
+
+.style-menu > li > span {
+	transition: all 0.5s ease;
+}
+
+.style-menu  li {
+	list-style: none;
+}
+
+.sub-category  > li:hover {
+	color: #FFF;
+}
+
+.style-menu > li > span {
+	float: right;
+}
+
+.style-menu > li:hover {
+	background: #cecece;
+}
+
+.container-main, .container-main > div, .container-main  .row {
+	height: 100%;
+}
+
+.title-filter {
+	font-size: 16px;
+	margin-top: 76px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: #3291D5;
+}
+
+.tabela-main {
+	margin-top: 20px;
+}
+
+.control-consulta {
+	height: 100%;
+	background: #F6F8F7;
+	border-right: 1px solid #cecece;
+}
