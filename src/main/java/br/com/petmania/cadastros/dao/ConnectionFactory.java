@@ -11,6 +11,7 @@ public class ConnectionFactory {
     private String pass = "";
     private String database = "pet_mania" ;
     
+    //retorna uma conexão para utilizar seus metodos
     public Connection getConnection() throws ClassNotFoundException {
         try {
             Class.forName("com.mysql.jdbc.Driver");

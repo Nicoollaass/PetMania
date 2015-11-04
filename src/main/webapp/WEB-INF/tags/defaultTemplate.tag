@@ -44,7 +44,7 @@
   </head>
   <body>
     
-    <c:if test="${not empty usuarioLogado}">
+    <c:if test="${usuarioLogado != null}">
        <t:defaultNavbar/>  
     </c:if>
     

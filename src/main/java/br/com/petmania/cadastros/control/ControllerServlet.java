@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -25,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/sistema")
 public class ControllerServlet extends HttpServlet {
-
+    
     /**
     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
     * methods.
@@ -38,25 +39,36 @@ public class ControllerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         
+        HttpSession session = request.getSession();
+        Usuario usuarioLogado = (Usuario)(session.getAttribute("usuarioLogado"));
+        
+        
         String pagina = "/WEB-INF/";
         String parametro = request.getParameter("acao");
-        String nomeDaClasse = "br.com.senac.petmania.cadastros.logica." + parametro;
         
-        try {
-            Class<?> classe = Class.forName(nomeDaClasse);
-            Logica logica = (Logica) classe.newInstance();
-            
-            // Recebe o String após a execução da lógica
-            pagina += logica.executa(request, response);
-            
-            if (!response.isCommitted()){  
-                // Faz o forward para a página JSP
-                request.getRequestDispatcher(pagina).forward(request, response);
-            }  
-            return;  
-        } catch (Exception e) {
-            throw new ServletException(
-            "A lógica de negócios causou uma exceção", e);
+        //verifica se usuario está logado no sistema ou se está acessando a pagina 
+        //de login
+        if(parametro.equals("Login") || usuarioLogado != null){
+            String nomeDaClasse = "br.com.senac.petmania.cadastros.logica." + parametro;
+            try {
+                Class<?> classe = Class.forName(nomeDaClasse);
+                Logica logica = (Logica) classe.newInstance();
+
+                // Recebe o String após a execução da lógica
+                pagina += logica.executa(request, response);
+
+                if (!response.isCommitted()){  
+                    // Faz o forward para a página JSP
+                    request.getRequestDispatcher(pagina).forward(request, response);
+                }  
+                return;  
+            } catch (Exception e) {
+                throw new ServletException(
+                "A lógica de negócios causou uma exceção", e);
+            }
+        }else {
+            //redireciona usuario para página de login
+            response.sendRedirect("sistema?acao=Login");
         }
     }
 

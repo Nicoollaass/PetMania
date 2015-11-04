@@ -100,10 +100,9 @@ public class DAOCliente
      * @return
      * @throws SQLException 
      */
-    public List<Cliente> buscarCliente (Cliente cliente) throws SQLException
-    {
-        
-        List<Cliente> listaClientes = new ArrayList();
+    public ArrayList<Cliente> buscarCliente () throws SQLException
+    {   
+        ArrayList<Cliente> listaClientes = new ArrayList();
         try
         {
             PreparedStatement stmt = con.prepareStatement("SELECT * "
@@ -113,6 +112,7 @@ public class DAOCliente
             
             while (rs.next())
             {
+                Cliente cliente = new Cliente();
                 cliente.setCpf(rs.getString("CPF"));
                 cliente.setData_nascimento(rs.getDate("DATA_NASCIMENTO"));
                 cliente.setEmail(rs.getString("EMAIL"));
@@ -122,7 +122,6 @@ public class DAOCliente
                 cliente.setTelefone(rs.getString("TELEFONE"));
                 cliente.setData_inclusao(rs.getDate("DATA_INCLUSAO"));
                 cliente.setId_cliente(rs.getInt("ID_CLIENTE"));
-                
                 listaClientes.add(cliente);
             }
         }
