@@ -5,7 +5,7 @@
  */
 package br.com.petmania.cadastros.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -13,15 +13,13 @@ import java.sql.Date;
  */
 public class Cliente extends Pessoa 
 {
-    private final int status_inativo = 0; //Variavel utilizada para inativar um cliente. Valor fixo 0
+    
     private int id_cliente = 0;
     private Date data_inclusao; //Campo utilizado apenas para consulta, nao utilizamos para gravar no banco.
 
     
     
-    public int getStatus_Inativo(){
-        return status_inativo;
-    }
+    
             
     /**
      * @return the id_cliente

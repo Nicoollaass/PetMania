@@ -36,7 +36,7 @@ public class ControllerServlet extends HttpServlet {
     * @throws ServletException if a servlet-specific error occurs
     * @throws IOException if an I/O error occurs
     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response, String method)
         throws ServletException, IOException {
         
         HttpSession session = request.getSession();
@@ -55,7 +55,7 @@ public class ControllerServlet extends HttpServlet {
                 Logica logica = (Logica) classe.newInstance();
 
                 // Recebe o String após a execução da lógica
-                pagina += logica.executa(request, response);
+                pagina += logica.executa(request, response, method);
 
                 if (!response.isCommitted()){  
                     // Faz o forward para a página JSP
@@ -84,7 +84,7 @@ public class ControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            processRequest(request, response);
+            processRequest(request, response,"GET");
         
     }
 
@@ -99,7 +99,7 @@ public class ControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            processRequest(request, response);
+            processRequest(request, response, "POST");
     }
 
     /**

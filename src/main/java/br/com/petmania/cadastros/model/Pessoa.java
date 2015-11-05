@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.petmania.cadastros.model;
-
 import java.sql.Date;
-
-
-
 /**
  *
  * @author felipe.smagalhaes
@@ -23,6 +19,16 @@ public abstract class  Pessoa {
     private String endereco = "";
     private String telefone = "";
     private String sexo; 
+    private int status; 
+    
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
     
     
     /**
@@ -56,14 +62,15 @@ public abstract class  Pessoa {
     /**
      * @return the data_nascimento
      */
-    public Date getData_nascimento() {
-        return data_nascimento;
+    public  java.sql.Date  getData_nascimento() {
+        return  data_nascimento;
+        
     }
 
     /**
      * @param data_nascimento the data_nascimento to set
      */
-    public void setData_nascimento(Date data_nascimento) {
+    public void setData_nascimento(Date data_nascimento) {                
         this.data_nascimento = data_nascimento;
     }
 

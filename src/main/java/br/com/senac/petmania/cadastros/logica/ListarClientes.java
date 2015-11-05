@@ -19,7 +19,30 @@ import javax.servlet.http.HttpServletResponse;
 public class ListarClientes implements Logica{
 
     @Override
-    public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public String executa(HttpServletRequest req, HttpServletResponse res, String method) throws Exception {
+        
+        //menssagens de erro ou sucesso da lógica de negócio de clientes
+        String editar  = req.getParameter("editar");
+        String salvar  = req.getParameter("salvar");
+        
+        if(editar != null){
+            if(editar.equals("true")){
+                String sucessMsg = "Editado com sucesso";
+                req.setAttribute("sucessMsg", sucessMsg);
+            }else {
+                String erroMsg = "Erro ao editar cliente";
+                req.setAttribute("erroMsg", erroMsg);
+            }
+        }else if(salvar != null) {
+            if(salvar.equals("true")){
+                String sucessMsg = "Salvo com sucesso";
+                req.setAttribute("sucessMsg", sucessMsg);
+            }else {
+                String erroMsg = "Erro ao salvar cliente";
+                req.setAttribute("erroMsg", erroMsg);
+            }
+        }
+        
         
         DAOCliente daoCliente = new  DAOCliente();
         ArrayList<Cliente> clientes = daoCliente.buscarCliente();

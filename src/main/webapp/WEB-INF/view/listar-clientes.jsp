@@ -41,6 +41,16 @@
         </t:defaultNavSearching>
         <!-- tabela -->
         <div class="tabela-main col-md-10">
+            <c:if test="${erroMsg != null}">
+                <div class="alert alert-danger" role="alert">
+                    <c:out value="${erroMsg}"/>
+                </div> 
+            </c:if>
+            <c:if test="${sucessMsg != null}">
+                <div class="alert alert-success" role="alert">
+                    <c:out value="${sucessMsg}"/>
+                </div> 
+            </c:if>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -61,9 +71,9 @@
                             <td><c:out value="${cliente.email}"/></td>
                             <td><c:out value="${cliente.data_inclusao}"/></td>
                             <td>
-                                <button type="button" class="btn btn-info">+ Info</button>
-                                <button type="button" class="btn btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
+                                <button type="button" class="btn btn-info"><a href="">+Info</a></button>
+                                <button type="button" class="btn btn btn-primary"><a href="<c:url value="/sistema?acao=EditarCliente&id=${cliente.id_cliente}"/>">Editar</a></button>
+                                <button type="button" class="btn btn-danger"><a href="<c:url value="/sistema?acao=ExcluirCliente&id=${cliente.id_cliente}"/>">Exluir</a></button>
                             </td>
                         </tr>
                     </c:forEach>

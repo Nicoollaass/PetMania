@@ -5,9 +5,11 @@
  */
 package br.com.senac.petmania.cadastros.utils;
 
-import java.sql.Date;
+
+import static java.lang.Integer.parseInt;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 /**
  *
@@ -20,21 +22,46 @@ public class Utils {
      * @param valor
      * @return 
      */
-    public Date formatarData (String valor)
+    public  Date formatarData (String valor) throws Exception
     {
+        
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         
-        Date data = null;
+        java.util.Date data = null;
+        java.sql.Date dataSql = null;
         
         try
         {
-            data = (Date) format.parse(valor);
+            data =  format.parse(valor);
+            dataSql = new java.sql.Date(data.getTime());
             
         }
         catch(ParseException e)
         {
-            System.out.println("Erro ao converter data. " + e.getMessage());
+            throw new Exception("Erro ao converter data. " + e.getMessage());
+            
         }
-        return data;
+       
+        return dataSql;
+    }
+    
+    /**
+     * Metodo responsável por transformar um string num inteiro
+     * @param valor
+     * @return 
+     */
+    public  int  parseStringInt (String valor) throws Exception
+    {   
+        int number;
+        try
+        {
+            number = parseInt(valor);
+        }
+        catch(Exception e)
+        {
+            throw new Exception("Erro ao converter data. " + e.getMessage());
+        }
+       
+        return number;
     }
 }

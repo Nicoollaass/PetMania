@@ -20,33 +20,59 @@ public class CadastroCliente implements Logica{
 
     
     @Override
-    public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public String executa(HttpServletRequest req, HttpServletResponse res,String method) throws Exception {
         
-        System.out.println("aqui passou");
-        
-        String valor = "19950302";
-        Date data = null;
-        
-        DAOCliente dao = new DAOCliente();
-        Cliente model = new Cliente();
-        Utils utils = new Utils();
-    
-        data = utils.formatarData(valor);
-        
-        //System.out.println(data);
-        System.out.println("ok");
-        
-        model.setCpf("1234567");
-        model.setData_nascimento(data);
-        model.setEmail("felipesantos.magalhaes@gmail.com");
-        model.setIdade(20);
-        model.setNome("Felipe");
-        model.setSexo("M");
-        model.setTelefone("943912345");
-        
-        dao.inserirCliente(model);
-        
-        return "view/index.html";
+        //Passando titulo e descrição da página
+        String titulo = "Cadastrar Cliente";
+        String descricao = "Cadastrar Cliente";
+        req.setAttribute("titulo", titulo);
+        req.setAttribute("descricao", descricao);
+        req.setAttribute("action", "/sistema?acao=CadastroCliente");
+        if(method.equals("POST")){
+            //recupera os dados
+            String nome  = req.getParameter("cliente_nome");
+            String cpf  = req.getParameter("cliente_cpf");
+            String data_old  = req.getParameter("cliente_data_nascimento");
+            String email  = req.getParameter("cliente_email");
+            String sexo  = req.getParameter("cliente_sexo");
+            String telefone  = req.getParameter("cliente_telefone");
+            String erroMsg = null;
+
+            if(
+                cpf != null && 
+                data_old != null &&
+                sexo != null &&
+                telefone != null &&
+                !cpf.equals("") && 
+                !data_old.equals("") &&
+                !sexo.equals("") &&
+                !telefone.equals("")
+              ){
+                
+                //Formata data
+                Utils utils = new Utils();
+                Date data = utils.formatarData(data_old);
+
+                //Passando as informações para a model
+                Cliente model = new Cliente();
+                model.setCpf(cpf);
+                model.setData_nascimento(data);
+                model.setEmail(email);
+                model.setIdade(20);
+                model.setNome(nome);
+                model.setSexo(sexo);
+                model.setTelefone(telefone);
+
+                //salvando cliente
+                DAOCliente dao = new DAOCliente();
+                dao.inserirCliente(model);
+                res.sendRedirect("sistema?acao=ListarClientes&salvar=true");
+            }else {
+                erroMsg = "Todos os campos devem estar preenchidos";
+                req.setAttribute("erroMsg", erroMsg);
+            }
+        }       
+        return "view/cadastro-cliente.jsp";
     
     }
     

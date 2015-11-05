@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
 public class Login implements Logica{
     
     @Override
-    public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public String executa(HttpServletRequest req, HttpServletResponse res, String method) throws Exception {
         
         String user  = req.getParameter("loginUsuario");
         String pass  = req.getParameter("loginSenha");
@@ -31,7 +31,8 @@ public class Login implements Logica{
             DAOUsuario daoLogin = new DAOUsuario();
             Usuario usuario = daoLogin.getUsuario(user, pass);
             if(usuario != null) {
-                HttpSession session = req.getSession();  
+                HttpSession session = req.getSession(); 
+                session.setMaxInactiveInterval(2*60*60);  // two hours
                 session.setAttribute("usuarioLogado",usuario);
                 res.sendRedirect("sistema?acao=Home");
             }else {

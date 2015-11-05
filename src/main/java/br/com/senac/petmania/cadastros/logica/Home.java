@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Home implements Logica {
 
     @Override
-    public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public String executa(HttpServletRequest req, HttpServletResponse res, String method) throws Exception {
         return "view/home.jsp";
     }
     
