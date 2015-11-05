@@ -36,7 +36,7 @@ public class DAOUsuario {
             stmt.setString(2,senha);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
-                System.out.println("ok");
+                //System.out.println("ok");
                 user = new Usuario();
                 user.setId(rs.getString("ID_USUARIO"));
                 user.setUsuario(rs.getString("USUARIO"));

@@ -8,7 +8,8 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<t:defaultTemplate>
+    
+    <t:defaultTemplate>
 
     <jsp:attribute name="paginaTitulo">
         Login

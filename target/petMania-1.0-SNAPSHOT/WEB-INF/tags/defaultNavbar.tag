@@ -12,7 +12,7 @@
                 <a class="navbar-brand" href="#">Icon pet</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav col-md-10">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -38,6 +38,12 @@
                         </ul>
                     </li>
                     <li><a href="#agenda">Agendamento de serviços</a></li>
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${usuarioLogado.getUsuario()}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

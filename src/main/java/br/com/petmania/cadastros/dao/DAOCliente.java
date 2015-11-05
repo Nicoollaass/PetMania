@@ -7,10 +7,14 @@ package br.com.petmania.cadastros.dao;
 
 import br.com.petmania.cadastros.model.Cliente;
 import br.com.petmania.cadastros.model.Pessoa;
+import br.com.senac.petmania.cadastros.utils.Utils;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,6 +48,13 @@ public class DAOCliente
      */
     public void inserirCliente (Cliente cliente) throws SQLException
     {
+        
+        Date data = null;
+        
+        //Timestamp stamp = new Timestamp(data.getDate());
+        
+        cliente.setData_inclusao(data);
+        
         try
         {
             
@@ -54,7 +65,8 @@ public class DAOCliente
                                                                              + "cpf, "
                                                                              + "sexo, "
                                                                              + "telefone) "
-                                                            + "VALUES (?, ?, ?, ?, ?, ?, ?)");
+                                                                             
+                                                            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             
             
             stmt.setString(1, cliente.getNome());
@@ -62,8 +74,9 @@ public class DAOCliente
             stmt.setDate(3, cliente.getData_nascimento());
             stmt.setString(4, cliente.getEmail());
             stmt.setString(5, cliente.getCpf());
-            stmt.setString(5, cliente.getSexo());
-            stmt.setString(5, cliente.getTelefone());
+            stmt.setString(6, cliente.getSexo());
+            stmt.setString(7, cliente.getTelefone());
+           // stmt.setDate(8, data);
             
             //ResultSet rs = stmt.executeQuery();
             
@@ -87,10 +100,9 @@ public class DAOCliente
      * @return
      * @throws SQLException 
      */
-    public List<Cliente> buscarCliente (Cliente cliente) throws SQLException
-    {
-        
-        List<Cliente> listaClientes = new ArrayList();
+    public ArrayList<Cliente> buscarCliente () throws SQLException
+    {   
+        ArrayList<Cliente> listaClientes = new ArrayList();
         try
         {
             PreparedStatement stmt = con.prepareStatement("SELECT * "
@@ -100,6 +112,7 @@ public class DAOCliente
             
             while (rs.next())
             {
+                Cliente cliente = new Cliente();
                 cliente.setCpf(rs.getString("CPF"));
                 cliente.setData_nascimento(rs.getDate("DATA_NASCIMENTO"));
                 cliente.setEmail(rs.getString("EMAIL"));
@@ -109,7 +122,6 @@ public class DAOCliente
                 cliente.setTelefone(rs.getString("TELEFONE"));
                 cliente.setData_inclusao(rs.getDate("DATA_INCLUSAO"));
                 cliente.setId_cliente(rs.getInt("ID_CLIENTE"));
-                
                 listaClientes.add(cliente);
             }
         }
