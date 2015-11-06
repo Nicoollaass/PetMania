@@ -5,6 +5,7 @@
  */
 package br.com.petmania.cadastros.dao;
 
+import br.com.senac.petmania.cadastros.utils.ConnectionFactory;
 import br.com.petmania.cadastros.model.Cliente;
 import br.com.petmania.cadastros.model.Pessoa;
 import br.com.senac.petmania.cadastros.utils.Contantes;
@@ -28,19 +29,12 @@ import java.util.logging.Logger;
 public class DAOCliente
 {
     
-    private Connection con;
+    
     
     
     public DAOCliente() 
     {
-        try 
-        {
-            this.con = new ConnectionFactory().getConnection();
-        } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }
     
     /**
@@ -48,7 +42,7 @@ public class DAOCliente
      * @param cliente
      * @throws SQLException 
      */
-    public void inserirCliente (Cliente cliente) throws SQLException
+    public void inserirCliente (Cliente cliente) throws SQLException, ClassNotFoundException
     {
         
         Date data = null;
@@ -56,6 +50,7 @@ public class DAOCliente
         //Timestamp stamp = new Timestamp(data.getDate());
         
         cliente.setData_inclusao(data);
+        Connection con = new ConnectionFactory().getConnection();
         
         try
         {
@@ -96,14 +91,16 @@ public class DAOCliente
      * @return ArrayList<Cliente>
      * @throws SQLException 
      */
-    public ArrayList<Cliente> buscarCliente () throws SQLException
+    public ArrayList<Cliente> buscarCliente () throws SQLException, ClassNotFoundException
     {   
         ArrayList<Cliente> listaClientes = new ArrayList();
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             PreparedStatement stmt = con.prepareStatement("SELECT * "
                                                         + "  FROM CLIENTE"
-                                                        + " WHERE STATUS = 1");
+                                                        + " WHERE STATUS = 1"
+                                                        + " ORDER BY nome ASC");
             
             ResultSet rs = stmt.executeQuery();
             
@@ -143,9 +140,10 @@ public class DAOCliente
     * @return Cliente
     * @throws SQLException 
     */
-    public Cliente getCliente (int id) throws SQLException
+    public Cliente getCliente (int id) throws SQLException, ClassNotFoundException
     {   
         Cliente cliente = null;
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             PreparedStatement stmt = con.prepareStatement("SELECT * "
@@ -175,7 +173,10 @@ public class DAOCliente
             throw new SQLException ("Erro ao buscar os clientes na base de dados. ", e);            
         }
         
-        
+        finally
+        {
+            con.close();
+        }
         
         
         return cliente;
@@ -185,9 +186,9 @@ public class DAOCliente
      * Metodo responsavel por alterar um registro na base de dados com base no seu ID.
      * @param cliente 
      */
-    public void alterarCliente(Cliente cliente) throws SQLException
+    public void alterarCliente(Cliente cliente) throws SQLException, ClassNotFoundException
     {
-        
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             
@@ -229,8 +230,9 @@ public class DAOCliente
      * @param cliente
      * @throws SQLException 
      */
-    public void inativarCliente(Contantes contante, int id) throws SQLException
+    public void inativarCliente(Contantes contante, int id) throws SQLException, ClassNotFoundException
     {        
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             

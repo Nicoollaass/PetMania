@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.petmania.cadastros.dao;
+import br.com.senac.petmania.cadastros.utils.ConnectionFactory;
 import br.com.petmania.cadastros.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,18 +19,15 @@ import java.util.logging.Logger;
  */
 public class DAOUsuario {
     
-    private Connection con;
+    
     
     public DAOUsuario() {
-        try {
-            this.con = new ConnectionFactory().getConnection();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
     
-    public Usuario getUsuario(String usuario,String senha) throws SQLException{
+    public Usuario getUsuario(String usuario,String senha) throws SQLException, ClassNotFoundException{
         Usuario user = null;
+        Connection con = new ConnectionFactory().getConnection();
         try {
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM USUARIO WHERE USUARIO=? AND SENHA=?");
             stmt.setString(1,usuario);

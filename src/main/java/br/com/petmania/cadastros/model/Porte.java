@@ -7,11 +7,11 @@ package br.com.petmania.cadastros.model;
 
 /**
  *
- * @author HERICK
+ * @author Nicolas
  */
-public class Raca {
-    private int id = 0;
-    private String descricao = "";
+public class Porte {
+    private int id;
+    private String descricao;
 
     public int getId() {
         return id;
@@ -29,7 +29,5 @@ public class Raca {
         this.descricao = descricao;
     }
 
-    
-    
-    
+   
 }

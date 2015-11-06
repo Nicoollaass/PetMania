@@ -35,7 +35,7 @@
 
             <jsp:attribute name="novoregistrobtn">
                 <div class="novo-registro">
-                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?acao=CadastroCliente"/>">Novo Cliente</a></button>
+                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?acao=CadastrarCliente"/>">Novo Cliente</a></button>
                 </div>
             </jsp:attribute>
         </t:defaultNavSearching>

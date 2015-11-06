@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hp
  */
-public class CadastroCliente implements Logica{
+public class CadastrarCliente implements Logica{
 
     
     @Override

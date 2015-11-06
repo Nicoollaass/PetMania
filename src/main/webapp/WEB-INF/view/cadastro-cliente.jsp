@@ -30,13 +30,6 @@
                 </span>
                 
             </jsp:attribute>
-                
-            <jsp:attribute name="novoregistrobtn">
-                <div class="novo-registro">
-                    <button type="button" class="btn btn-success">Novo registro</button>
-                </div>
-            </jsp:attribute>
-                
         </t:defaultNavSearching>
             <div class="content-main col-md-10">
                 

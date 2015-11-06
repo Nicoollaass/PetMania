@@ -5,6 +5,7 @@
  */
 package br.com.petmania.cadastros.dao;
 
+import br.com.senac.petmania.cadastros.utils.ConnectionFactory;
 import br.com.petmania.cadastros.model.Animal;
 import br.com.petmania.cadastros.model.Cliente;
 import java.sql.Connection;
@@ -79,12 +80,12 @@ public class DAOAnimal
         }
     }
     
-     /**
-     * metodo responsavel por buscar todos os clientes cadastrados na base de dados
-     * e retorna-los em um array.
-     * @return
-     * @throws SQLException 
-     */
+    /**
+    * metodo responsavel por buscar todos os clientes cadastrados na base de dados
+    * e retorna-los em um array.
+    * @return
+    * @throws SQLException 
+    */
     
     public ArrayList<Animal> buscarCliente () throws SQLException
     {
@@ -137,14 +138,13 @@ public class DAOAnimal
         
         try
         {
-            PreparedStatement stmt = con.prepareStatement("UPDATE ANIMAL SET (nome, "
-                                                                            + "cor,"
-                                                                            + "idade, "
-                                                                            + "ID_TIPO_ANIMAL, "
-                                                                            + "ID_PORTE, "
-                                                                            + "ID_RACA)"
-                                                           + "VALUES (?, ? ,? ,? ,? ,?) "
-                                                           + "WHERE ID_ANIMAL =?");
+            PreparedStatement stmt = con.prepareStatement("UPDATE ANIMAL SET (nome=?, "
+                                                                            + "cor=?,"
+                                                                            + "idade=?, "
+                                                                            + "ID_TIPO_ANIMAL=?, "
+                                                                            + "ID_PORTE=?, "
+                                                                            + "ID_RACA=?"
+                                                                    + "WHERE ID_ANIMAL =?");
             
             stmt.setString(1, animal.getNome());
             stmt.setString(2, animal.getCor());

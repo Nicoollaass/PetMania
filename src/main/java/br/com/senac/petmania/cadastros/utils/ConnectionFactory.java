@@ -1,4 +1,4 @@
-package br.com.petmania.cadastros.dao;
+package br.com.senac.petmania.cadastros.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

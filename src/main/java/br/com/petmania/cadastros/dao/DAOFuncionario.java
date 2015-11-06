@@ -6,6 +6,7 @@
 package br.com.petmania.cadastros.dao;
 
 
+import br.com.senac.petmania.cadastros.utils.ConnectionFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import br.com.petmania.cadastros.model.Cliente;
