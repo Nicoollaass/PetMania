@@ -25,7 +25,7 @@
                             <li><a href="#">Produto</a></li>
                             <li><a href="#">Serviços</a></li>
                             <li><a href="#">Funcionarios</a></li>
-                            <li><a href="#">Clientes</a></li>
+                            <li><a href="<c:url value="/sistema?acao=ListarClientes"/>">Clientes</a></li>
                             <li><a href="#">Animais</a></li>
                             <li><a href="#">Filiais</a></li>
                         </ul>

@@ -102,7 +102,8 @@ public class DAOCliente
         try
         {
             PreparedStatement stmt = con.prepareStatement("SELECT * "
-                                                        + "  FROM CLIENTE");
+                                                        + "  FROM CLIENTE"
+                                                        + " WHERE STATUS = 1");
             
             ResultSet rs = stmt.executeQuery();
             

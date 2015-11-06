@@ -28,6 +28,7 @@ public class ExcluirCliente implements Logica{
                 int id = utils.parseStringInt(identificador);
                 Contantes contante = new Contantes();
                 dao.inativarCliente(contante,id);
+                res.sendRedirect("sistema?acao=ListarClientes&excluir=true");
             }
             
             return "view/listar-clientes.jsp";

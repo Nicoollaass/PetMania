@@ -24,6 +24,7 @@ public class ListarClientes implements Logica{
         //menssagens de erro ou sucesso da lógica de negócio de clientes
         String editar  = req.getParameter("editar");
         String salvar  = req.getParameter("salvar");
+        String excluir  = req.getParameter("excluir");
         
         if(editar != null){
             if(editar.equals("true")){
@@ -39,6 +40,14 @@ public class ListarClientes implements Logica{
                 req.setAttribute("sucessMsg", sucessMsg);
             }else {
                 String erroMsg = "Erro ao salvar cliente";
+                req.setAttribute("erroMsg", erroMsg);
+            }
+        }else if(excluir != null) {
+            if(excluir.equals("true")){
+                String sucessMsg = "Excluido com sucesso";
+                req.setAttribute("sucessMsg", sucessMsg);
+            }else {
+                String erroMsg = "Erro ao excluir cliente";
                 req.setAttribute("erroMsg", erroMsg);
             }
         }
