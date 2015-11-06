@@ -12,6 +12,8 @@ package br.com.petmania.cadastros.model;
 public class Funcionario extends Pessoa
 {
     private int id_funcionario = 0;
+    private int id_tipo_funcionario = 0;
+    private int Status = 0;
     private double salario = 0d;
 
     /**
@@ -40,5 +42,33 @@ public class Funcionario extends Pessoa
      */
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    /**
+     * @return the id_tipo_funcionario
+     */
+    public int getId_tipo_funcionario() {
+        return id_tipo_funcionario;
+    }
+
+    /**
+     * @param id_tipo_funcionario the id_tipo_funcionario to set
+     */
+    public void setId_tipo_funcionario(int id_tipo_funcionario) {
+        this.id_tipo_funcionario = id_tipo_funcionario;
+    }
+
+    /**
+     * @return the Status
+     */
+    public int getStatus() {
+        return Status;
+    }
+
+    /**
+     * @param Status the Status to set
+     */
+    public void setStatus(int Status) {
+        this.Status = Status;
     }
 }

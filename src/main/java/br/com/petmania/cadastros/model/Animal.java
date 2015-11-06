@@ -11,6 +11,8 @@ package br.com.petmania.cadastros.model;
  */
 public class Animal 
 {
+    private int id_animal = 0;
+    private int id_cliente = 0; 
     private String nome = "";
     private String cor = "";
     private int idade = 0;
@@ -18,7 +20,11 @@ public class Animal
     private String data_inclusao = "";
     private int id_porte = 0;
     private int id_raca = 0;
+    private int status_inativo = 0; //Valor fixo para excluir/inativar o cliente
 
+    
+    
+    
     /**
      * @return the nome
      */
@@ -115,6 +121,48 @@ public class Animal
      */
     public void setId_raca(int id_raca) {
         this.id_raca = id_raca;
+    }
+
+    /**
+     * @return the id_cliente
+     */
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    /**
+     * @param id_cliente the id_cliente to set
+     */
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
+    /**
+     * @return the id_animal
+     */
+    public int getId_animal() {
+        return id_animal;
+    }
+
+    /**
+     * @param id_animal the id_animal to set
+     */
+    public void setId_animal(int id_animal) {
+        this.id_animal = id_animal;
+    }
+
+    /**
+     * @return the status_inativo
+     */
+    public int getStatus_inativo() {
+        return status_inativo;
+    }
+
+    /**
+     * @param status_inativo the status_inativo to set
+     */
+    public void setStatus_inativo(int status_inativo) {
+        this.status_inativo = status_inativo;
     }
     
     
