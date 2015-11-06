@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-br\com\petmania\cadastros\model\Funcionario.class
-br\com\senac\petmania\cadastros\logica\Logica.class
-br\com\petmania\cadastros\control\ControllerServlet.class
-br\com\petmania\cadastros\dao\ConnectionFactory.class
-br\com\petmania\cadastros\model\Cliente.class
-br\com\petmania\cadastros\model\Animal.class
-=======
 br\com\petmania\cadastros\model\LogSaidaProduto.class
 br\com\senac\petmania\cadastros\logica\Logica.class
 br\com\petmania\cadastros\model\EstoqueProduto.class
@@ -16,12 +8,10 @@ br\com\senac\petmania\cadastros\logica\Login.class
 br\com\petmania\cadastros\dao\DAOCliente.class
 br\com\petmania\cadastros\model\Marca.class
 br\com\petmania\cadastros\model\CategoriaServico.class
-br\com\petmania\cadastros\dao\ConnectionFactory.class
 br\com\petmania\cadastros\model\VendaProdutos.class
 br\com\petmania\cadastros\model\Pessoa.class
 br\com\petmania\cadastros\model\ProdutoPertencente.class
 br\com\petmania\cadastros\dao\DAOUsuario.class
-br\com\senac\petmania\cadastros\logica\CadastroCliente.class
 br\com\senac\petmania\cadastros\logica\Home.class
 br\com\petmania\cadastros\model\Funcionario.class
 br\com\senac\petmania\cadastros\logica\ListarClientes.class
@@ -34,4 +24,3 @@ br\com\petmania\cadastros\control\ControllerServlet.class
 br\com\petmania\cadastros\model\Produto.class
 br\com\petmania\cadastros\model\VendaServico.class
 br\com\petmania\cadastros\model\ItemVendaProduto.class
->>>>>>> e2d5e09fd39041a49c2b4498be8cc18cceb7388a

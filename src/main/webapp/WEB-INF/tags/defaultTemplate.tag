@@ -54,10 +54,7 @@
         <jsp:doBody/>
 
       </section>
-
-      <footer class="site-footer">
-        
-      </footer>
+      
     </section>
         
     <jsp:invoke fragment="paginaBottom"/>

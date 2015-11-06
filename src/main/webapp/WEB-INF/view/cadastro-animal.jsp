@@ -63,10 +63,10 @@
                             </select>
                         </div>
                         <div class="col-md-4 style-input">
-                            <input type="select" name="Nome" value="" class="form-control " placeholder="Nome do Animal...">
+                            <input type="select" name="nome" value="" class="form-control " placeholder="Nome do Animal...">
                         </div>
                         <div class="col-md-3 style-input">
-                            <input type="text" name="Idade" value="" class="form-control inputAnimal-float-right" placeholder="Idade...">
+                            <input type="text" name="idade" value="" class="form-control inputAnimal-float-right" placeholder="Idade...">
                         </div>
                     </div>
                     <div class="row">				
@@ -77,7 +77,7 @@
                             <label><h4>Raça:</h4></label>
                         </div>
                         <div class="col-md-3 Animal-Label-bottom">
-                            <label><h4>Idade:</h4></label>
+                            <label><h4>Cor:</h4></label>
                         </div>
                         <div class="col-md-3 Animal-Label-bottom">
                             <label><h4>Porte:</h4></label>
@@ -85,7 +85,7 @@
                     </div>   
                     <div class="row">
                         <div class="col-md-3 form-group">
-                            <select name="Idade" value="" class="form-control" id="Tipo Animal">
+                            <select name="id_tipo_animal" value="" class="form-control" id="Tipo Animal">
                                 <c:forEach items="${tiposAnimais}" var="tiposAnimais">
                                     <option value="<c:out value="${tiposAnimais.id}"/>"><c:out value="${tiposAnimais.descricao}"/></option>
                                 </c:forEach>
@@ -113,7 +113,7 @@
                     </div>						
                     <div class="row">
                         <div class="col-md-12 text-right Animal-top-buffer-4  ">
-                            <button type="button" name="cadastrar" value="cadastrar" class="btn btn-success">Cadastrar</button>
+                            <button type="submit" name="cadastrar" value="cadastrar" class="btn btn-success">Cadastrar</button>
                             <button type="button" name="limpar" value="limpar" class="btn btn-warning">Limpar</button>
                             <button type="button" name="cancelar" value="cancelar" class="btn btn-danger">Cancelar</button>
                         </div>

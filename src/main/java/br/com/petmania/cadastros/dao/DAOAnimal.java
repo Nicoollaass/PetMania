@@ -42,10 +42,10 @@ public class DAOAnimal
      * @param animal
      * @throws SQLException 
      */
-    public void inserirAnimal(Animal animal) throws SQLException
+    public void inserirAnimal(Animal animal) throws SQLException, ClassNotFoundException
     {
         
-
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             PreparedStatement stmt = con.prepareStatement("INSERT INTO animal (id_cliente, "
@@ -55,7 +55,7 @@ public class DAOAnimal
                                                                             + "id_tipo_animal, "
                                                                             + "id_porte, "
                                                                             + "id_raca) "
-                                                        + "VALUES (?, ?, ?, ?, ?, ?)");
+                                                        + "VALUES (?, ?, ?, ?, ?, ?,?)");
             
             stmt.setInt(1, animal.getId_cliente());
             stmt.setString(2, animal.getNome());
@@ -64,9 +64,8 @@ public class DAOAnimal
             stmt.setInt(5, animal.getId_tipo_animal());
             stmt.setInt(6, animal.getId_porte());
             stmt.setInt(7, animal.getId_raca());
-            
+            stmt.execute();
             stmt.close();
-            
         }
         
         catch(SQLException e)
@@ -81,21 +80,22 @@ public class DAOAnimal
     }
     
     /**
-    * metodo responsavel por buscar todos os clientes cadastrados na base de dados
+    * metodo responsavel por buscar todos os animais cadastrados na base de dados
     * e retorna-los em um array.
-    * @return
+    * @return ArrayList<Animal>
     * @throws SQLException 
     */
     
-    public ArrayList<Animal> buscarCliente () throws SQLException
+    public ArrayList<Animal> buscarAnimal () throws SQLException, ClassNotFoundException
     {
         
         ArrayList<Animal> listaAnimal = new ArrayList();
-        
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             PreparedStatement stmt = con.prepareStatement("SELECT * "
-                                                        + "  FROM ANIMAL");
+                                                        + "FROM ANIMAL "
+                                                        + "WHERE STATUS = 1");
             
             ResultSet rs = stmt.executeQuery();
             
@@ -111,8 +111,9 @@ public class DAOAnimal
                 animal.setId_porte(rs.getInt("ID_PORTE"));
                 animal.setId_raca(rs.getInt("ID_RACA"));
                 listaAnimal.add(animal);
-                
             }
+            rs.close();
+            stmt.close();
         }
         catch(SQLException e)
         {
@@ -153,7 +154,7 @@ public class DAOAnimal
             stmt.setInt(5, animal.getId_porte());
             stmt.setInt(6, animal.getId_raca());
             stmt.setInt(7, animal.getId_animal());
-            
+            stmt.execute();
             stmt.close();
         }
         

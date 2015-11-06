@@ -5,14 +5,17 @@
  */
 package br.com.senac.petmania.cadastros.logica;
 
+import br.com.petmania.cadastros.dao.DAOAnimal;
 import br.com.petmania.cadastros.dao.DAOCliente;
 import br.com.petmania.cadastros.dao.DAOPorte;
 import br.com.petmania.cadastros.dao.DAORaca;
 import br.com.petmania.cadastros.dao.DAOTipoAnimal;
+import br.com.petmania.cadastros.model.Animal;
 import br.com.petmania.cadastros.model.Cliente;
 import br.com.petmania.cadastros.model.Porte;
 import br.com.petmania.cadastros.model.Raca;
 import br.com.petmania.cadastros.model.TipoAnimal;
+import br.com.senac.petmania.cadastros.utils.Utils;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,8 +54,58 @@ public class CadastrarAnimal implements Logica{
         DAOTipoAnimal daoTipoAnimal = new DAOTipoAnimal();
         ArrayList<TipoAnimal> tiposAnimais = daoTipoAnimal.buscarTipoAnimal();
         req.setAttribute("tiposAnimais", tiposAnimais);
-    
+        
+        if(method.equals("POST")){
+            
+            //recupera os dados
+            String id_cliente  = req.getParameter("id_cliente");
+            String nome  = req.getParameter("nome");
+            String idade  = req.getParameter("idade");
+            String id_tipo_animal  = req.getParameter("id_tipo_animal");
+            String id_porte  = req.getParameter("id_porte");
+            String id_raca  = req.getParameter("id_raca");
+            String cor  = req.getParameter("cor");
+            String erroMsg = null;
+
+            if(
+                id_cliente != null && 
+                nome != null &&
+                idade != null &&
+                id_tipo_animal != null &&
+                id_porte != null &&
+                id_raca != null &&
+                cor != null &&
+                !id_cliente.equals("") && 
+                !nome.equals("") &&
+                !idade.equals("") &&
+                !id_tipo_animal.equals("") &&
+                !id_porte.equals("") &&
+                !id_raca.equals("") &&
+                !cor.equals("")
+              ){
+                
+                //Formata data
+                Utils utils = new Utils();
+              
+                //Passando as informações para a model
+                Animal model = new Animal();
+                model.setId_cliente(utils.parseStringInt(id_cliente));
+                model.setNome(nome);
+                model.setIdade(utils.parseStringInt(idade));
+                model.setId_tipo_animal(utils.parseStringInt(id_tipo_animal));
+                model.setId_porte(utils.parseStringInt(id_porte));
+                model.setId_raca(utils.parseStringInt(id_raca));
+                model.setCor(cor);
+
+                //salvando cliente
+                DAOAnimal dao = new DAOAnimal();
+                dao.inserirAnimal(model);
+                res.sendRedirect("sistema?acao=ListarAnimal&salvar=true");
+            }else {
+                erroMsg = "Todos os campos devem estar preenchidos";
+                req.setAttribute("erroMsg", erroMsg);
+            }
+        }
         return "view/cadastro-animal.jsp";
     }
-    
 }

@@ -53,6 +53,7 @@
                             </p>
                         </div>
                     </div>
+                    
                 </form>
             </div>
             <img src="<c:url value="/assets/img/icon/dog.png"/>" alt="" class="icon-animal">

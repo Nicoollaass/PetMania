@@ -1,87 +1,40 @@
-<<<<<<< HEAD
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\ProdutoPertencente.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Animal.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Funcionario.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Raca.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Usuario.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\CategoriaServico.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\senac\petmania\cadastros\logica\Home.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\senac\petmania\cadastros\logica\Logica.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\VendaProdutos.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Categoria.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Cliente.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\VendaServico.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\dao\DAOUsuario.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\EstoqueProduto.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\senac\petmania\cadastros\logica\Login.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Marca.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\control\ControllerServlet.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\senac\petmania\cadastros\logica\ListarClientes.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaServico.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaProduto.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\senac\petmania\cadastros\utils\Utils.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\dao\DAOCliente.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\senac\petmania\cadastros\logica\CadastroCliente.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\LogSaidaProduto.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Pessoa.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Servico.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\dao\ConnectionFactory.java
-C:\Users\Nicolas\Documents\NetBeansProjects\petMania\src\main\java\br\com\petmania\cadastros\model\Produto.java
-=======
-<<<<<<< HEAD
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Cliente.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOUsuario.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Categoria.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Pessoa.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\LogSaidaProduto.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\dao\ConnectionFactory.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Marca.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOCliente.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\EstoqueProduto.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Logica.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Raca.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Funcionario.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\VendaProdutos.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Home.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Login.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\VendaServico.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Animal.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Usuario.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Produto.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\control\ControllerServlet.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaProduto.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaServico.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\ProdutoPertencente.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\Servico.java
-C:\Users\HERICK\PetMania\src\main\java\br\com\petmania\cadastros\model\CategoriaServico.java
-=======
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\ListarClientes.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Animal.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Produto.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\dao\ConnectionFactory.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Servico.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaProduto.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Cliente.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOUsuario.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaServico.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\VendaServico.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Login.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\EstoqueProduto.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Raca.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\control\ControllerServlet.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\CategoriaServico.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Marca.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Logica.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Funcionario.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Pessoa.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\ProdutoPertencente.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Usuario.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\senac\petmania\cadastros\utils\Utils.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Home.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\VendaProdutos.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOCliente.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\Categoria.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\petmania\cadastros\model\LogSaidaProduto.java
-C:\Users\felipe.smagalhaes\Desktop\Nova pasta\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\CadastroCliente.java
->>>>>>> e2d5e09fd39041a49c2b4498be8cc18cceb7388a
->>>>>>> fcac607623af6f8deafdbc5e61e356cdee4f5966
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Login.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\utils\Utils.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\EstoqueProduto.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\VendaServico.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\ListarClientes.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\control\ControllerServlet.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Produto.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaServico.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Usuario.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\CadastrarCliente.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\EditarCliente.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOPorte.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOUsuario.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\ExcluirCliente.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Categoria.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOTipoAnimal.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Animal.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\TipoAnimal.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Pessoa.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOFuncionario.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAORaca.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Funcionario.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\utils\Contantes.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOAnimal.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Logica.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\ItemVendaProduto.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Marca.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Porte.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\ProdutoPertencente.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\LogSaidaProduto.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\CadastrarAnimal.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Servico.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\VendaProdutos.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOCliente.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\utils\ConnectionFactory.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\senac\petmania\cadastros\logica\Home.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Cliente.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\Raca.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\dao\DAOProduto.java
+C:\Users\Nicolas.Silva\Documents\NetBeansProjects\PetMania\src\main\java\br\com\petmania\cadastros\model\CategoriaServico.java

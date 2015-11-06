@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `pet_mania` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `pet_mania`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.24, for Win32 (x86)
 --
--- Host: 127.0.0.1    Database: pet_mania
+-- Host: localhost    Database: pet_mania
 -- ------------------------------------------------------
--- Server version	5.6.20
+-- Server version	5.6.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -44,7 +42,7 @@ CREATE TABLE `animal` (
   CONSTRAINT `ID_PORTE` FOREIGN KEY (`ID_PORTE`) REFERENCES `porte` (`ID_PORTE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `ID_RACA` FOREIGN KEY (`ID_RACA`) REFERENCES `raca` (`ID_RACA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `ID_TIPO_ANIMAL` FOREIGN KEY (`ID_TIPO_ANIMAL`) REFERENCES `tipo_animal` (`ID_TIPO_ANIMAL`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,6 +51,7 @@ CREATE TABLE `animal` (
 
 LOCK TABLES `animal` WRITE;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
+INSERT INTO `animal` VALUES (1,1,'tod','Preto',2,1,'2015-11-06 19:30:50',1,1,1);
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +120,7 @@ CREATE TABLE `cliente` (
   `STATUS` int(11) NOT NULL DEFAULT '1',
   `DATA_INCLUSAO` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID_CLIENTE`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,6 +129,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Felipe ',20,'1995-11-05','email@email.com','1234546789','M','123456789',1,'2015-11-06 19:12:42');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,7 +310,7 @@ CREATE TABLE `porte` (
   `ID_PORTE` int(11) NOT NULL AUTO_INCREMENT,
   `DESCRICAO` varchar(75) NOT NULL,
   PRIMARY KEY (`ID_PORTE`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -319,6 +319,7 @@ CREATE TABLE `porte` (
 
 LOCK TABLES `porte` WRITE;
 /*!40000 ALTER TABLE `porte` DISABLE KEYS */;
+INSERT INTO `porte` VALUES (1,'Pequeno'),(2,'Médio'),(3,'Grande');
 /*!40000 ALTER TABLE `porte` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,7 +394,7 @@ CREATE TABLE `raca` (
   `ID_RACA` int(11) NOT NULL AUTO_INCREMENT,
   `DESCRICAO` varchar(75) NOT NULL,
   PRIMARY KEY (`ID_RACA`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -402,6 +403,7 @@ CREATE TABLE `raca` (
 
 LOCK TABLES `raca` WRITE;
 /*!40000 ALTER TABLE `raca` DISABLE KEYS */;
+INSERT INTO `raca` VALUES (1,'Budog'),(2,'Pastor Alemão');
 /*!40000 ALTER TABLE `raca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -445,7 +447,7 @@ CREATE TABLE `tipo_animal` (
   `ID_TIPO_ANIMAL` int(11) NOT NULL AUTO_INCREMENT,
   `DESCRICAO` varchar(75) NOT NULL,
   PRIMARY KEY (`ID_TIPO_ANIMAL`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -454,6 +456,7 @@ CREATE TABLE `tipo_animal` (
 
 LOCK TABLES `tipo_animal` WRITE;
 /*!40000 ALTER TABLE `tipo_animal` DISABLE KEYS */;
+INSERT INTO `tipo_animal` VALUES (1,'Cachorro '),(2,'Gato'),(3,'Pássaro');
 /*!40000 ALTER TABLE `tipo_animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -478,6 +481,33 @@ CREATE TABLE `tipo_funcionario` (
 LOCK TABLES `tipo_funcionario` WRITE;
 /*!40000 ALTER TABLE `tipo_funcionario` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tipo_funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `ID_USUARIO` int(11) NOT NULL,
+  `USUARIO` varchar(255) NOT NULL,
+  `SENHA` varchar(255) NOT NULL,
+  `ACESSO` int(11) NOT NULL,
+  `NOME` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID_USUARIO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (0,'Nicolas','123',1,'Nicolas Silva');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -547,4 +577,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-04 22:15:24
+-- Dump completed on 2015-11-06 18:09:55
