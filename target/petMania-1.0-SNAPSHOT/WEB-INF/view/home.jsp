@@ -4,7 +4,7 @@
     Author     : Nicolas
 --%>
 
-<%@page import="br.com.petmania.cadastros.model.Usuario"%>
+<%@page import="br.com.petmania.model.Usuario"%>
 <%-- 
     Document   : home
     Created on : 27/10/2015, 21:41:35

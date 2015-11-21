@@ -1,8 +1,0 @@
-#surefire
-#Fri Nov 06 14:27:59 BRST 2015
-maven.ext.class.path=C\:\\Program Files\\NetBeans 8.0.2\\java\\maven-nblib\\netbeans-eventspy.jar
-user.dir=C\:\\Users\\Nicolas.Silva\\Documents\\NetBeansProjects\\PetMania
-file.encoding=UTF-8
-localRepository=C\:\\Users\\Nicolas.Silva\\.m2\\repository
-netbeans.deploy=true
-basedir=C\:\\Users\\Nicolas.Silva\\Documents\\NetBeansProjects\\PetMania

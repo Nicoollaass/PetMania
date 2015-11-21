@@ -1,0 +1,232 @@
+/* css all */
+.table>thead>tr>th {
+	vertical-align: middle;
+}
+.table thead {
+	background: #354961;
+    color: #FFF;
+}
+
+/* step compra ====================*/
+.container-main {
+	margin-top: 50px;
+	
+}
+
+.icon-acoes {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.plus {
+	margin-right: 5px;
+	color: #4BA34B;
+}
+
+.minus {
+	color: red;
+}
+
+.quant-input {
+	width: 30%;
+}
+
+.container-total {
+	float: right;
+
+}
+
+.container-total > * {
+	display: inline-block;
+}
+
+.container-total input {
+	width: 150px;
+}
+
+.container-total label {
+	margin-right: 10px;
+}
+
+.finalizar-compra {
+	clear: right;
+	float: right;
+}
+
+/* /step compra =========================*/
+
+/* step pagamento ==================== */
+
+
+
+div.step-on {
+	display: block;
+}
+
+.step-2 {
+	float: left;
+	height: 100%;
+	width: 100%;
+}
+
+.step-1{
+	height: 100%;
+	float: left;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+}
+
+.container-main {
+	height: 100%;
+	margin-top: 0;
+}
+
+.content-main{
+	margin-left: 16.6%;
+}
+
+.style-pagamento {
+	margin-top: 30px;
+}
+
+.info-desconto {
+	display: block;
+} 
+
+.content-main h1 {
+	    font-size: 23px;
+    margin-bottom: 25px;
+    padding: 10px;
+    background-color: #808B8D;
+    color: #ECF0F1;
+}
+
+
+.table-pedido-finalizado {
+	border: 1px solid #DDDDDD;
+}
+
+.table-pedido-finalizado td {
+	background-color: #EEEEEE;
+	color: #303030;
+}
+
+.table {
+	width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #cecece;
+}
+
+/* step vincular cliente============= */
+
+.vincular {
+	color: #4BA34B;
+	font-size: 20px;
+}
+
+
+.step {
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+.step-2, .step-3 {
+	display: none;
+}
+
+
+
+.content-main form, .content-main {
+	height: 100%;
+}
+
+
+/*cart ==============================  */
+
+.cart {
+	position: fixed;
+	top: 5px;
+	right: 0.4%;
+	padding: 10px;
+	color: #FFF;
+	font-size: 21px;
+	z-index: 10000;
+	text-align: right;
+}
+.cart > span {
+	margin-bottom: 14px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.item-cart {
+	border-left: 1px solid #ECECEC;
+	border-right: 1px solid #ECECEC;
+	border-bottom: 1px solid #ECECEC;
+	/* padding: 10px; */
+	background: #FFF;
+	width: 100%;
+	color: black;
+	font-size: 14px;
+	box-shadow: 0px 0px 8px 0px rgba(0,0,0,.1);
+	padding-bottom: 0;
+}
+
+.item-cart table {
+	width: 100%;
+}
+.item-cart table th {
+	padding: 10px;
+	font-size: 15px;
+}
+
+.item-cart table th:nth-child(2) {
+	text-align: center;
+}
+
+.item-cart table th:nth-child(3) {
+	text-align: center;
+}
+
+.item-cart table td {
+	text-align: center;
+	padding: 10px;
+}
+
+.item-cart table td:nth-child(1) {
+ 	width: 60%;
+ 	text-align: left;
+}
+
+.item-cart table td:nth-child(2) {
+	width: 20%;
+}
+
+.item-cart table td:nth-child(3) {
+	width: 20%;
+}
+.item-cart {
+	display: none;
+}
+
+.total-pedido > p {
+	margin-bottom: 0;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.total-pedido {
+	padding: 10px;
+	background-color: #354961;
+	color: #FFF;
+}
+
+.remove {
+	cursor: pointer;
+	font-size: 18px;
+}
+
+

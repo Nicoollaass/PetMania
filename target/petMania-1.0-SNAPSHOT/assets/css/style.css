@@ -7,6 +7,11 @@ button > a {
     text-decoration: none;
 }
 
+.navbar-inverse {
+	background-image: none;
+	background-color: #101010;
+}
+
 .content-main {
     margin-top: 40px;
 }
@@ -42,7 +47,9 @@ button > a {
 
 .style-menu {
 	width: 100%;
-	padding: 0;
+        padding: 0;
+        float: left;
+        margin-top: 21px;
 }
 
 .custom-search-form {
@@ -99,5 +106,56 @@ button > a {
 	height: 100%;
 	background: #F6F8F7;
 	border-right: 1px solid #cecece;
+	position: fixed;
+	height: 100%;
+}
+
+.content-main form {
+	height: 100%;
+}
+
+.content-main {
+    height: 100%;
+    margin-left: 16.6%;
+    margin-top: 76px;
+}
+
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.container-load {
+	position: fixed;
+	left: 0;
+	right: 0;
+	text-align: center;
+	top: 0;
+	bottom: 0;
+	background: rgba(0,0,0,.7);
+	z-index: 10;
+	display: none;
+}
+
+.container-load > button {
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 53px;
+    width: 13%;
 }
 
