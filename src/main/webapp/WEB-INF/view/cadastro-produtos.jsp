@@ -42,7 +42,7 @@
            <!--copiar ate aqui --> 
             
             <div class="conteiner-fluid">
-                <form action="" method="" accept-charset="utf-8">
+                <form action="<c:url value="${action}"/>" method="POST" accept-charset="utf-8">
                     <div class="row">
                         <div class="col-md-12">
                             <h1>Cadastro de Produtos</h1>
@@ -54,31 +54,46 @@
                        
                         <div class="col-md-11 style-input">
                             <label><h4>Nome:</h4></label>
-                            <input type="select" name="nome" value="" class="form-control " placeholder="nome..." required>
+                            <!--<input type="select" name="nome" value="" class="form-control " placeholder="nome..." required> -->
+                            <input type="text" value="<c:out value="${produto.nome}"/>" class="form-control " name="nome" placeholder="nome...">
                         </div>
 
                         <div class="col-md-6 style-input">
                             <label><h4>Descrição:</h4></label>
-                            <input type="select" name="descricao" value="" class="form-control " placeholder="Descrição..." required>
+                            <!--<input type="select" name="descricao" value="" class="form-control " placeholder="Descrição..." required> -->
+                            <input type="text" value="<c:out value="${produto.descricao}"/>" class="form-control " name="descricao" placeholder="Preço...">
+                        </div>
+                        
+                        <div class="col-md-3 style-input">
+                            <label><h4>Data de entrada:</h4></label>
+                            <input type="Date" class="form-control " value="<c:out value="${produto.data_entrada}"/>" name="data_entrada" placeholder="data de entrada">
                         </div>
 
+
                         <div class="col-md-5 form-group">
-                            <label><h4>Categoria:</h4></label>                            
-                            <select class="form-control" name="id_categoria" value=""  id="categoria" required>
-                                <option>Categoria...</option>
+                            <label><h4>Marca</h4></label>                            
+                            <select class="form-control" name="marca" value=""  id="Produto" required>
+                                <!--<option>Marca...</option>-->
+                                <c:forEach items="${marca}" var="marca">
+                                    <option value="<c:out value="${marca.marca}"/>"><c:out value="${marca.descricao}"/></option>
+                                </c:forEach>
                             </select>
                         </div>
                        
 
                         <div class="col-md-5 form-group">
-                            <label><h4>Marca:</h4></label>
-                            <select class="form-control" name="marca" value="" id="Cliente" required>
-                                <option>Marca...</option>
+                            <label><h4>Categoria:</h4></label>
+                            <select class="form-control" name="categoria" value="" id="Produto" required>
+                                <!--<option>Marca...</option>-->
+                                 <c:forEach items="${categoria}" var="categoria">
+                                    <option value="<c:out value="${categoria.id_categoria}"/>"><c:out value="${categoria.descricao}"/></option>
+                                </c:forEach>
                             </select>
                         </div>
                         <div class="col-md-2 style-input">
                              <label><h4>Preço:</h4></label>
-                            <input type="select" name="preco" value="" class="form-control " placeholder="Preço..." required>
+                            <!--<input type="select" name="preco" value="" class="form-control " placeholder="Preço..." required>-->
+                            <input type="text" value="<c:out value="${produto.preco}"/>" class="form-control " name="preco" placeholder="Preço...">
                         </div>
                         
 
@@ -89,6 +104,7 @@
                                 <button type="submit" name="salvar" value="salvar" class="btn btn-success">Salvar</button>
                                 <button type="button" name="limpar" value="limpar" class="btn btn-warning">Limpar</button>
                                 <button type="button" name="cancelar" value="cancelar" class="btn btn-danger">Cancelar</button>
+                                <input type="hidden" name="id_produto" value="<c:out value="${produto.id_produto}"/>">
                             </div>
                         </div>
 

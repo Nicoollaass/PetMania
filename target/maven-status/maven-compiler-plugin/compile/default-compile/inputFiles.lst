@@ -3,6 +3,7 @@ C:\Users\Hp\PetMania\src\main\java\br\com\senac\petmania\animais\logica\FilterAn
 C:\Users\Hp\PetMania\src\main\java\br\com\senac\petmania\carrinho\logica\RemoverCarrinho.java
 C:\Users\Hp\PetMania\src\main\java\br\com\petmania\model\Usuario.java
 C:\Users\Hp\PetMania\src\main\java\br\com\petmania\model\Servico.java
+C:\Users\Hp\PetMania\src\main\java\br\com\petmania\dao\DAOCategoria.java
 C:\Users\Hp\PetMania\src\main\java\br\com\petmania\model\EstoqueProduto.java
 C:\Users\Hp\PetMania\src\main\java\br\com\senac\petmania\logica\Home.java
 C:\Users\Hp\PetMania\src\main\java\br\com\senac\petmania\produto\logica\FilterProduto.java
@@ -42,6 +43,7 @@ C:\Users\Hp\PetMania\src\main\java\br\com\petmania\dao\DAOTipoAnimal.java
 C:\Users\Hp\PetMania\src\main\java\br\com\senac\petmania\utils\Utils.java
 C:\Users\Hp\PetMania\src\main\java\br\com\senac\petmania\clientes\logica\CadastrarCliente.java
 C:\Users\Hp\PetMania\src\main\java\br\com\senac\petmania\carrinho\logica\Item.java
+C:\Users\Hp\PetMania\src\main\java\br\com\petmania\dao\DAOMarca.java
 C:\Users\Hp\PetMania\src\main\java\br\com\petmania\dao\DAOPorte.java
 C:\Users\Hp\PetMania\src\main\java\br\com\petmania\model\ItemVendaServico.java
 C:\Users\Hp\PetMania\src\main\java\br\com\petmania\model\LogSaidaProduto.java
