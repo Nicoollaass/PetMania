@@ -35,8 +35,8 @@
 
             <jsp:attribute name="novoregistrobtn">
                 <div class="novo-registro">
-                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?acao=CadastrarCliente"/>">Novo Cliente</a></button>
-                </div>
+                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?param=clientes&acao=CadastrarCliente"/>">Novo Cliente</a></button>
+                </div>                                                                
             </jsp:attribute>
         </t:defaultNavSearching>
         <!-- tabela -->
@@ -72,8 +72,8 @@
                             <td><c:out value="${cliente.data_inclusao}"/></td>
                             <td>
                                 <button type="button" class="btn btn-info"><a href="">+Info</a></button>
-                                <button type="button" class="btn btn btn-primary"><a href="<c:url value="/sistema?acao=EditarCliente&id=${cliente.id_cliente}"/>">Editar</a></button>
-                                <button type="button" class="btn btn-danger"><a href="<c:url value="/sistema?acao=ExcluirCliente&id=${cliente.id_cliente}"/>">Exluir</a></button>
+                                <button type="button" class="btn btn btn-primary"><a href="<c:url value="/sistema?param=clientes&acao=EditarCliente&id=${cliente.id_cliente}"/>">Editar</a></button>
+                                <button type="button" class="btn btn-danger"><a href="<c:url value="/sistema?param=clientes&acao=ExcluirCliente&id=${cliente.id_cliente}"/>">Exluir</a></button>
                             </td>
                         </tr>
                     </c:forEach>

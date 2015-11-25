@@ -23,7 +23,7 @@ public class ListarClientes implements Logica{
     public String executa(HttpServletRequest req, HttpServletResponse res, String method) throws Exception {
         
         //menssagens de erro ou sucesso da lógica de negócio de clientes
-        String editar  = req.getParameter("editar");
+        String editar  = req.getParameter("ditar");
         String salvar  = req.getParameter("salvar");
         String excluir  = req.getParameter("excluir");
         

@@ -95,7 +95,7 @@ public class CadastroProdutos implements Logica {
                  
                  dao.inserirProduto(prod);
                  
-                 res.sendRedirect("sistema?param=produto&acao=CadastroProdutos");
+                 res.sendRedirect("sistema?param=produto&acao=ListarProdutos");
              }
              else
              {

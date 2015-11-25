@@ -75,7 +75,7 @@
                             <select class="form-control" name="marca" value=""  id="Produto" required>
                                 <!--<option>Marca...</option>-->
                                 <c:forEach items="${marca}" var="marca">
-                                    <option value="<c:out value="${marca.marca}"/>"><c:out value="${marca.descricao}"/></option>
+                                    <option value="<c:out value="${marca.marca}"/>" <c:out value="${(marca.marca == produto.id_marca)?'selected':''}"/>><c:out value="${marca.descricao}"/></option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -86,7 +86,7 @@
                             <select class="form-control" name="categoria" value="" id="Produto" required>
                                 <!--<option>Marca...</option>-->
                                  <c:forEach items="${categoria}" var="categoria">
-                                    <option value="<c:out value="${categoria.id_categoria}"/>"><c:out value="${categoria.descricao}"/></option>
+                                    <<option value="<c:out value="${categoria.id_categoria}"/>"<c:out value="${(categoria.id_categoria == produto.id_categoria)?'selected':''}"/>><c:out value="${categoria.descricao}"/></option>
                                 </c:forEach>
                             </select>
                         </div>

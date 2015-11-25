@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import br.com.petmania.model.Produto;
 import br.com.senac.petmania.utils.ConnectionFactory;
+import br.com.senac.petmania.utils.Contantes;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +71,7 @@ public class DAOProduto {
     */
     public Produto getProduto (int id) throws SQLException, ClassNotFoundException
     {   
-        Produto prod = null;
+        Produto produto = null;
         
         Connection con = new ConnectionFactory().getConnection();
         try
@@ -84,12 +85,13 @@ public class DAOProduto {
             
             while (rs.next())
             {
-                Produto produto = new Produto();
+                produto = new Produto();
                 produto.setId_produto(rs.getInt("ID_PRODUTO"));
                 produto.setNome(rs.getString("NOME"));
                 produto.setDescricao(rs.getString("DESCRICAO"));   
                 produto.setPreco(rs.getDouble("PRECO"));
                 produto.setData_entrada(rs.getDate("DATA_ENTRADA"));
+                produto.setData_inclusao(rs.getDate("DATA_INCLUSAO"));
                 produto.setId_categoria(rs.getInt("ID_CATEGORIA"));
                 produto.setId_marca(rs.getInt("ID_MARCA"));
             }
@@ -108,7 +110,7 @@ public class DAOProduto {
             con.close();
         }
         
-        return prod;
+        return produto;
     }
     
      public void alterarProduto (Produto prod) throws SQLException, ClassNotFoundException
@@ -117,15 +119,15 @@ public class DAOProduto {
          
          try
          {
-             PreparedStatement stmt = con.prepareStatement("UPDATE PRODUTO SET  (Nome =?,"
+             PreparedStatement stmt = con.prepareStatement("UPDATE PRODUTO SET  nome =?,"
                                                                              + "descricao =?, "
                                                                              + "data_entrada =?, "
                                                                            //  + "data_inclusao =?, "
                                                                              + "preco=?, "
                                                                              + "id_categoria=?, "
-                                                                             + "id_marca=? )"
+                                                                             + "id_marca=? "
                                                                              
-                                                            + "VALUES (?, ?, ?, ?, ?, ?, ?)");
+                                                             + "WHERE ID_PRODUTO = ?");
              
             stmt.setString(1, prod.getNome());
             stmt.setString(2, prod.getDescricao());
@@ -133,6 +135,7 @@ public class DAOProduto {
             stmt.setDouble(4, prod.getPreco());
             stmt.setInt(5, prod.getId_categoria());
             stmt.setInt(6, prod.getId_marca());
+            stmt.setInt(7, prod.getId_produto());
             
             stmt.execute();
             stmt.close();
@@ -157,7 +160,12 @@ public class DAOProduto {
         try
         {
             PreparedStatement stmt = con.prepareStatement("SELECT * "
-                                                        + "  FROM produto");
+                                                        + "  FROM produto "
+                                                      + "WHERE status = ? ");
+            
+            //Filtro para trazer apenas os produos ativos
+            stmt.setInt(1, 1);           
+            
             
             ResultSet rs = stmt.executeQuery();
             
@@ -166,7 +174,8 @@ public class DAOProduto {
                 Produto produto = new Produto();
                 produto.setId_produto(rs.getInt("ID_PRODUTO"));
                 produto.setNome(rs.getString("NOME"));
-                produto.setDescricao(rs.getString("DESCRICAO"));   
+                produto.setDescricao(rs.getString("DESCRICAO"));
+                produto.setData_entrada(rs.getDate("DATA_ENTRADA"));
                 produto.setPreco(rs.getDouble("PRECO"));
                 produto.setId_categoria(rs.getInt("ID_CATEGORIA"));
                 produto.setId_marca(rs.getInt("ID_MARCA"));
@@ -186,6 +195,35 @@ public class DAOProduto {
         }
         
         return listaProdutos;
+    }
+    
+    /**
+     * Metodo responsavel por inativar um produo em nossa base de dados, por regra de negocio,
+     * nao excluimos nenhum registro, sendo assim, mantendo um histórico e a integridade do banco.
+     * @param produto
+     * @throws SQLException 
+     */
+    public void inativarProduto(Contantes contante, int id) throws SQLException, ClassNotFoundException
+    {        
+        Connection con = new ConnectionFactory().getConnection();
+        try
+        {
+            
+            PreparedStatement stmt = con.prepareStatement("UPDATE PRODUTO SET status=? "
+                                                                + "WHERE ID_PRODUTO =?");
+            stmt.setInt(1, contante.getStatus_Inativo());
+            stmt.setInt(2, id);           
+            stmt.execute();
+            stmt.close();
+        }
+        catch(SQLException e)
+        {
+            throw new SQLException("Erro ao inativar o produto selecionado! ", e);
+        }
+        finally
+        {
+            con.close();
+        }
     }
     
     public Produto isProduto (int id) throws SQLException, ClassNotFoundException

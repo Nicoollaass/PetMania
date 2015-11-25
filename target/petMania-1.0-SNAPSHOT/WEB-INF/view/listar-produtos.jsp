@@ -35,7 +35,7 @@
 
             <jsp:attribute name="novoregistrobtn">
                 <div class="novo-registro">
-                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?acao=CadastroProdutos"/>">Novo produto</a></button>
+                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?param=produto&acao=CadastroProdutos"/>">Novo produto</a></button>
                 </div>
             </jsp:attribute>
         </t:defaultNavSearching>
@@ -65,19 +65,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${produtos}" var="produtos">
+                    <c:forEach items="${produtos}" var="produto">
                         <tr>
-                            <td><c:out value="${produto.id_cliente}"/></td>
+                            <td><c:out value="${produto.id_produto}"/></td>
                             <td><c:out value="${produto.nome}"/></td>
                             <td><c:out value="${produto.descricao}"/></td>
                             <td><c:out value="${produto.data_entrada}"/></td>
-                            <td><c:out value="${cliente.categoria}"/></td>
-                            <td><c:out value="${cliente.marca}"/></td>
-                            <td><c:out value="${cliente.preco}"/></td>
+                            <td><c:out value="${produto.id_categoria}"/></td>
+                            <td><c:out value="${produto.id_marca}"/></td>
+                            <td><c:out value="${produto.preco}"/></td>
                             <td>
                                 <button type="button" class="btn btn-info"><a href="">+Info</a></button>
-                                <button type="button" class="btn btn btn-primary"><a href="<c:url value="/sistema?acao=EditarProduto&id=${produto.id_produto}"/>">Editar</a></button>
-                                <button type="button" class="btn btn-danger"><a href="<c:url value="/sistema?acao=ExcluirProduto&id=${produto.id_produto}"/>">Exluir</a></button>
+                                <button type="button" class="btn btn btn-primary"><a href="<c:url value="/sistema?param=produto&acao=EditarProduto&id=${produto.id_produto}"/>">Editar</a></button>
+                                <button type="button" class="btn btn-danger"><a href="<c:url value="/sistema?param=produto&acao=ExcluirProduto&id=${produto.id_produto}"/>">Excluir</a></button>
                             </td>
                         </tr>
                     </c:forEach>

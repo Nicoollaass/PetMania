@@ -32,11 +32,13 @@ public class ExcluirProduto implements Logica
             int id = utils.parseStringInt(identificador);
             
             Contantes contante = new Contantes();
+            dao.inativarProduto(contante, id);
+            res.sendRedirect("sistema?param=produto&acao=ListarProdutos");
             
             
         }
         
-        return null;
+        return "view/listar-produtos.jsp";
     }
      
 }

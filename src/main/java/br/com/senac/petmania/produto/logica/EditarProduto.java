@@ -5,13 +5,18 @@
  */
 package br.com.senac.petmania.produto.logica;
 
+import br.com.petmania.dao.DAOCategoria;
 import br.com.petmania.dao.DAOCliente;
+import br.com.petmania.dao.DAOMarca;
 import br.com.petmania.dao.DAOProduto;
+import br.com.petmania.model.Categoria;
+import br.com.petmania.model.Marca;
 import br.com.petmania.model.Produto;
 import br.com.senac.petmania.logica.Logica;
 import br.com.senac.petmania.utils.Contantes;
 import br.com.senac.petmania.utils.Utils;
-import java.util.Date;
+import java.sql.Date;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EditarProduto implements Logica 
 {
-    
+    String id_produto = "";
     String nome = "";
     String descricao = "";
     String id_marca = "";
@@ -40,13 +45,14 @@ public class EditarProduto implements Logica
         String descricao = "Editar produto";
         req.setAttribute("titulo", titulo);
         req.setAttribute("descricao", descricao);
-        req.setAttribute("action", "/sistema?acao=EditarProduto");
+        req.setAttribute("action", "/sistema?param=produto&acao=EditarProduto");
 
         DAOProduto dao = new DAOProduto();
         Utils utils = new Utils();
         
         if (method.equals("POST")) 
         {
+            this.id_produto = req.getParameter("id_produto");
             this.nome = req.getParameter("nome");
             this.descricao = req.getParameter("descricao");
             this.id_categoria = req.getParameter("categoria");
@@ -66,15 +72,16 @@ public class EditarProduto implements Logica
                 
                 Date data = utils.formatarData(this.data_entrada);
 
+                prod.setId_produto(Integer.parseInt(id_produto));
                 prod.setNome(this.nome);
                 prod.setDescricao(this.descricao);
                 prod.setId_marca(Integer.parseInt(this.id_marca));
                 prod.setId_categoria(Integer.parseInt(this.id_categoria));
                 prod.setPreco(Double.parseDouble(this.preco));
-                prod.setData_entrada((java.sql.Date) data);
+                prod.setData_entrada(data);
                 
                 dao.alterarProduto(prod);
-                res.sendRedirect("sistema?acao=Listarprodutos&editar=true");
+                res.sendRedirect("sistema?param=produto&acao=ListarProdutos");
                 
             }
             
@@ -92,13 +99,23 @@ public class EditarProduto implements Logica
             String identificador = req.getParameter("id");
             if(identificador != null)
             {
+                //Marca
+                DAOMarca marca = new DAOMarca();
+                ArrayList<Marca> marc = marca.buscarMarca();
+                req.setAttribute("marca", marc);
+                
+                //Categoria
+                DAOCategoria cat = new DAOCategoria();
+                ArrayList<Categoria> categoria = cat.buscarCategoria();
+                req.setAttribute("categoria", categoria);
+        
                 int id = utils.parseStringInt(identificador);
-                Produto produto = dao.getProduto(id);
-                req.setAttribute("cliente", produto);
+                Produto produtos = dao.getProduto(id);
+                req.setAttribute("produto", produtos);
             }
         }
         
-        return "view/listar-produtos.jsp";
+        return "view/cadastro-produtos.jsp";
     }
     
 }
