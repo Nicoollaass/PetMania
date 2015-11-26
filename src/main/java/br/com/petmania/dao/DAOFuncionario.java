@@ -26,31 +26,12 @@ public class DAOFuncionario
 
 
 {
-      private Connection con;
-    
-    public class DAOCliente
-    {
-    
-        private Connection con;
-    
-        public DAOCliente() 
-        {
-            try 
-            {
-                this.con = new ConnectionFactory().getConnection();
-            } 
-            catch (ClassNotFoundException ex) 
-            {
-                Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    
-   }
+      
 
 
   public void inserirFuncionario (Funcionario funcionario) throws SQLException, ClassNotFoundException
     {
-        
+
         Connection con = new ConnectionFactory().getConnection();
         try
         {
@@ -93,6 +74,7 @@ public class DAOFuncionario
         
         Connection con = new ConnectionFactory().getConnection();
         
+
         List<Funcionario> listaFuncionarios = new ArrayList();
         try
         {
@@ -131,13 +113,13 @@ public class DAOFuncionario
         
         return listaFuncionarios;
     }
-   public void alterarFuncionario(Funcionario funcionario) throws SQLException
+   public void alterarFuncionario(Funcionario funcionario) throws SQLException, ClassNotFoundException
     {
-        
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             
-            
+             
             PreparedStatement stmt = con.prepareStatement("INSERT INTO cliente (nome, "
                                                                              + "id_tipo_funcionario, "
                                                                              + "data_nascimento, "
@@ -173,11 +155,11 @@ public class DAOFuncionario
      * @param funcionario
      * @throws SQLException 
      */
-    public void inativarFuncionario(Funcionario funcionario) throws SQLException
+    public void inativarFuncionario(Funcionario funcionario) throws SQLException, ClassNotFoundException
     {
         
         
-        
+         Connection con = new ConnectionFactory().getConnection();
         PreparedStatement stmt = con.prepareStatement("UPDATE CLIENTE SET (status) "
                                                             + "VALUES (?)"
                                                             + "WHERE ID_CLIENTE =?");

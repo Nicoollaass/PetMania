@@ -31,8 +31,8 @@ public class Login implements Logica{
             DAOUsuario daoLogin = new DAOUsuario();
             Usuario usuario = daoLogin.getUsuario(user, pass);
             if(usuario != null) {
-                HttpSession session = req.getSession(); 
-                session.setMaxInactiveInterval(2*60*60);  // two hours
+                HttpSession session = req.getSession(true); 
+                session.setMaxInactiveInterval(1600);  
                 session.setAttribute("usuarioLogado",usuario);
                 res.sendRedirect("sistema?acao=Home");
             }else {

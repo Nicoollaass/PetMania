@@ -10,3 +10,18 @@
 .container-grafico {
     margin-top: 100px;
 }
+
+select.filter.form-control {
+	width: 100%;
+	display: block;
+}
+
+.input-group.custom-search-form {
+	width: 100%;
+}
+
+select.filter-filial.form-control {
+	display: none;
+	margin-top: 20px;
+}
+

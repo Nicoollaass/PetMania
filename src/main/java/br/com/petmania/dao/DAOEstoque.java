@@ -122,25 +122,31 @@ public class DAOEstoque {
      * @return boolean
      * @throws SQLException 
      */
-    public boolean isProduto (int id_produto,int qtde) throws SQLException, ClassNotFoundException
+    public Produto isProduto (int id_produto,int qtde) throws SQLException, ClassNotFoundException
     {   
         Connection con = new ConnectionFactory().getConnection();
-        boolean check = false;
+        Produto produto =  null;
         try
-        {
-            EstoqueProduto estoque;
+        {   
             PreparedStatement stmt = con.prepareStatement(""
-                                                        + " SELECT * FROM ESTOQUE_PRODUTO "
+                                                        + " SELECT "
+                                                        + " PRODUTO.DESCRICAO AS 'DESCRICAO'"
+                                                        + " FROM ESTOQUE_PRODUTO "
+                                                        
+                                                        + "INNER JOIN PRODUTO " +
+                                                          "ON ESTOQUE_PRODUTO.ID_PRODUTO_ESTOQUE = PRODUTO.ID_PRODUTO " 
+                                                        
                                                         + "WHERE ID_PRODUTO_ESTOQUE = ? "
-                                                        + "AND QUANTIDADE >= ?");
+                                                        + "AND QUANTIDADE < ?");
             stmt.setInt(1, id_produto);
             stmt.setInt(2, qtde);
-            
             ResultSet rs = stmt.executeQuery();
             
             while (rs.next())
             {
-                check = true;    
+                produto = new Produto();
+                produto.setDescricao(rs.getString("DESCRICAO"));
+                
             }
             rs.close();
             stmt.close();
@@ -155,6 +161,6 @@ public class DAOEstoque {
             con.close();
         }
         
-        return check;
+        return produto;
     }
 }

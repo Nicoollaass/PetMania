@@ -40,7 +40,7 @@
             </jsp:attribute>
         </t:defaultNavSearching>
         <!-- tabela -->
-        <div class="tabela-main col-md-10">
+        <div class="content-main tabela-main col-md-10">
             <c:if test="${erroMsg != null}">
                 <div class="alert alert-danger" role="alert">
                     <c:out value="${erroMsg}"/>

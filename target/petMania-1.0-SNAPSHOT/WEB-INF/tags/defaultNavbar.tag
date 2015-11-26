@@ -16,32 +16,30 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Vendas</a></li>
+                            <li><a href="<c:url value="/sistema?param=relatorio&acao=Relatorio&chart=filial"/>">Vendas</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listar<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Produto</a></li>
-                            <li><a href="#">Serviços</a></li>
-                            <li><a href="#">Funcionarios</a></li>
-                            <li><a href="<c:url value="/sistema?acao=ListarClientes"/>">Clientes</a></li>
-                            <li><a href="#">Animais</a></li>
-                            <li><a href="#">Filiais</a></li>
+                            <li><a href="<c:url value="/sistema?param=produto&acao=ListarProdutos"/>">Produto</a></li>
+                            <!--<li><a href="<c:url value="/sistema?acao=ListarClientes"/>">Funcionarios</a></li>-->
+                            <li><a href="<c:url value="/sistema?param=clientes&acao=ListarClientes"/>">Clientes</a></li>
+                            <li><a href="<c:url value="/sistema?param=animais&acao=ListarAnimal"/>">Animais</a></li>
+                            
                         </ul>
                     </li>						
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Produto</a></li>
-                            <li><a href="#">Serviços</a></li>
+                            <li><a href="<c:url value="/sistema?param=produto&acao=VendaProduto"/>">Produto</a></li>
                         </ul>
                     </li>
-                    <li><a href="#agenda">Agendamento de serviços</a></li>
+                    <!--<li><a href="#agenda">Agendamento de serviços</a></li>-->
                     <li class="dropdown pull-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${usuarioLogado.getUsuario()}<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="sistema?acao=Login">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

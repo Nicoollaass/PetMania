@@ -7,6 +7,7 @@ package br.com.petmania.control;
 
 import br.com.petmania.dao.DAOUsuario;
 import br.com.petmania.model.Usuario;
+import br.com.senac.petmania.logica.AutenticaUsuario;
 import br.com.senac.petmania.logica.Logica;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -42,21 +43,41 @@ public class ControllerServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Usuario usuarioLogado = (Usuario)(session.getAttribute("usuarioLogado"));
         
-        
+        //Resgata os parametros da url
         String pagina = "/WEB-INF/";
         String param = request.getParameter("param");
         String acao = request.getParameter("acao");
         
         //verifica se usuario está logado no sistema ou se está acessando a pagina 
         //de login
-        //if(parametro.equals("Login") || usuarioLogado != null){
+        if(acao.equals("Login") || usuarioLogado != null){
+            
+            //Nome da lógica
             String nomeDaClasse = null; 
+            
+            //if param == null então chamamos o packge defaut da aplição
             if(param != null) {
                 nomeDaClasse = "br.com.senac.petmania."+param+".logica."+acao;
             }else {
                 nomeDaClasse = "br.com.senac.petmania.logica."+acao;
             }
+            
+            
+            
             try {
+                
+                if(!acao.equals("Login")){
+                    
+                    AutenticaUsuario autentica = new AutenticaUsuario(usuarioLogado);
+                
+                    //Autentica acesso de páginas
+                    if(!autentica.validaAcesso(acao)){
+                        nomeDaClasse = "br.com.senac.petmania.logica.AcessoNegado";
+                    }
+                }
+                
+                
+                
                 Class<?> classe = Class.forName(nomeDaClasse);
                 Logica logica = (Logica) classe.newInstance();
 
@@ -72,10 +93,10 @@ public class ControllerServlet extends HttpServlet {
                 throw new ServletException(
                 "A lógica de negócios causou uma exceção", e);
             }
-        //}else {
+        }else {
             //redireciona usuario para página de login
-          //  response.sendRedirect("sistema?acao=Login");
-        //  }
+            response.sendRedirect("sistema?acao=Login");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

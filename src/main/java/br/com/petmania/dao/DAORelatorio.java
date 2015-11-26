@@ -52,7 +52,7 @@ public class DAORelatorio {
                                                     "	INNER JOIN LOCACAO " +
                                                     "	ON FUNCIONARIO.ID_LOCACAO = LOCACAO.ID_LOCACAO " +
                                                     "" +
-                                                    "	GROUP BY ID_VENDEDOR");
+                                                    "	GROUP BY LOCACAO.ID_LOCACAO");
             
             ResultSet rs = stmt.executeQuery();
             
@@ -78,4 +78,114 @@ public class DAORelatorio {
         
         return relatorios;
     }  
+    
+    
+    /**
+    * metodo responsavel por buscar quantidade de produtos vendidos
+    * e retorna-los em um array.
+    * @return ArrayList<Raca> 
+    * @throws SQLException 
+    */
+    
+    public List<Object> produto () throws SQLException, ClassNotFoundException
+    {
+        
+       
+        List<Object> relatorios = new ArrayList();
+        Connection con = new ConnectionFactory().getConnection();
+        try
+        {
+            PreparedStatement stmt = con.prepareStatement("SELECT  " +
+                                                        "    sum(QTDE) AS 'QUANTIDADE', " +
+                                                        "    PRODUTO.DESCRICAO AS 'DESCRICAO' " +
+                                                        "FROM SAIDA_PRODUTO " +
+                                                        "INNER JOIN PRODUTO " +
+                                                        "ON PRODUTO.ID_PRODUTO = SAIDA_PRODUTO.ID_PRODUTO  " +
+                                                        "GROUP BY SAIDA_PRODUTO.ID_PRODUTO");
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next())
+            {
+                Map<String,Object> relatorio = new HashMap<String,Object>();
+                relatorio.put("QUANTIDADE", rs.getInt("QUANTIDADE"));
+                relatorio.put("DESCRICAO", rs.getString("DESCRICAO"));
+                relatorios.add(relatorio);
+            }
+        }
+        catch(SQLException e)
+        {
+            throw new SQLException ("Erro filtrar relatório de vendas por filial. ", e);
+        }
+        
+        finally
+        {
+            con.close();
+        }
+        
+        
+        return relatorios;
+    } 
+    
+    
+     /**
+    * metodo responsavel por buscar vendedores por filial
+    * e retorna-los em um LIST.
+    * @param id_filial
+    * @return List<Object> 
+    * @throws SQLException 
+    */
+    
+    public List<Object> vendedor (int id_filial) throws SQLException, ClassNotFoundException
+    {
+        
+       
+        List<Object> relatorios = new ArrayList();
+        Connection con = new ConnectionFactory().getConnection();
+        try
+        {
+            PreparedStatement stmt = con.prepareStatement(  "SELECT \n" +
+                                                            "	 sum(QTDE) AS 'QUANTIDADE',\n" +
+                                                            "    ID_VENDEDOR,\n" +
+                                                            "    USUARIO.ID_FUNCIONARIO ,\n" +
+                                                            "    FUNCIONARIO.NOME AS 'NOME',\n" +
+                                                            "    LOCACAO.DESCRICAO\n" +
+                                                            "    \n" +
+                                                            "FROM SAIDA_PRODUTO\n" +
+                                                            "\n" +
+                                                            "INNER JOIN USUARIO\n" +
+                                                            "ON SAIDA_PRODUTO.ID_VENDEDOR = USUARIO.ID_USUARIO\n" +
+                                                            "\n" +
+                                                            "INNER JOIN FUNCIONARIO\n" +
+                                                            "ON USUARIO.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO\n" +
+                                                            "\n" +
+                                                            "INNER JOIN LOCACAO\n" +
+                                                            "ON FUNCIONARIO.ID_LOCACAO = LOCACAO.ID_LOCACAO \n" +
+                                                            "\n" +
+                                                            "WHERE LOCACAO.ID_LOCACAO = ?\n" +
+                                                            "GROUP BY ID_VENDEDOR");
+            stmt.setInt(1, id_filial);
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next())
+            {
+                Map<String,Object> relatorio = new HashMap<String,Object>();
+                relatorio.put("QUANTIDADE", rs.getInt("QUANTIDADE"));
+                relatorio.put("NOME", rs.getString("NOME"));
+                relatorios.add(relatorio);
+            }
+        }
+        catch(SQLException e)
+        {
+            throw new SQLException ("Erro filtrar relatório de vendas por filial. ", e);
+        }
+        
+        finally
+        {
+            con.close();
+        }
+        
+        
+        return relatorios;
+    } 
 }

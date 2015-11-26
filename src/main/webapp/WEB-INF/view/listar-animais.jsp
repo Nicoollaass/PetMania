@@ -21,6 +21,9 @@
     </jsp:attribute>
 
     <jsp:body>
+          <div class="container-load">
+                <button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Carregando...</button>
+            </div>
         <t:defaultNavSearching>
             <jsp:attribute name="contentSearching">
                 <div class="input-group custom-search-form">
@@ -57,10 +60,11 @@
                             Raça
                             <span class="glyphicon glyphicon-chevron-right icon-arrow" aria-hidden="true"></span>
                             <ul class="sub-category">
-                                <!--
-                                    <li><input class="check-filter" type="checkbox" name="racas" value="">
+                                <c:forEach items="${racas}" var="racas">
+                                    <li><input class="check-filter" type="checkbox" name="tipos" value="<c:out value="${racas.id}"/>">
+                                        <c:out value="${racas.descricao}"/>
                                     </li>
-                                -->
+                                </c:forEach>
                             </ul>
                         </li>
                        
@@ -76,7 +80,7 @@
             </jsp:attribute>
         </t:defaultNavSearching>
         <!-- tabela -->
-        <div class="tabela-main col-md-10">
+        <div class="content-main tabela-main col-md-10">
             <c:if test="${erroMsg != null}">
                 <div class="alert alert-danger" role="alert">
                     <c:out value="${erroMsg}"/>
