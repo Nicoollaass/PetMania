@@ -37,8 +37,7 @@ public class DAOProduto {
                                                                              + "descricao, "
                                                                              + "data_entrada, "
                                                                              + "data_inclusao, "
-                                                                             + "preco, "
-                                                         		 + "id_categoria, "
+                                                                             + "id_categoria, "
                                                                              + "id_marca )"
                                                                              
                                                             + "VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -48,7 +47,6 @@ public class DAOProduto {
             stmt.setString(2, produto.getDescricao());
             stmt.setDate(3, produto.getData_entrada());
             stmt.setDate(4, produto.getData_inclusao());
-            stmt.setDouble(5, produto.getPreco());
             stmt.setInt(5, produto.getId_categoria());
             stmt.setInt(5, produto.getId_marca());
            
@@ -80,8 +78,7 @@ public class DAOProduto {
                 Produto produto = new Produto();
                 produto.setId_produto(rs.getInt("ID_PRODUTO"));
                 produto.setNome(rs.getString("NOME"));
-                produto.setDescricao(rs.getString("DESCRICAO"));   
-                produto.setPreco(rs.getDouble("PRECO"));
+                produto.setDescricao(rs.getString("DESCRICAO"));
                 produto.setId_categoria(rs.getInt("ID_CATEGORIA"));
                 produto.setId_marca(rs.getInt("ID_MARCA"));
                 
@@ -117,8 +114,9 @@ public class DAOProduto {
             while (rs.next())
             {
                 produto = new Produto();
+                produto.setId_produto(rs.getInt("ID_PRODUTO"));
                 produto.setNome(rs.getString("NOME"));
-                produto.setDescricao(rs.getString("DESCRICAO"));   
+                produto.setDescricao(rs.getString("DESCRICAO"));
                 produto.setPreco(rs.getDouble("PRECO"));
                 produto.setId_categoria(rs.getInt("ID_CATEGORIA"));
                 produto.setId_marca(rs.getInt("ID_MARCA"));

@@ -1,0 +1,94 @@
+.container-principal {
+	margin-top: 120px;
+}
+
+.header-pedido > div {
+	padding: 50px;
+	background-color: #334960;
+	color: #FFF;
+	white-space: pre-line;
+	text-align: center;
+}
+
+.header-pedido span.glyphicon {
+	color: #2BCB71;
+	font-size: 40px;
+	margin-right: 10px;
+}
+
+.header-pedido span {
+	vertical-align: middle;
+
+}
+
+/* ============ codigo do pedido */
+
+.codigo {
+
+	font-size: 20px;
+	font-weight: bold;
+	color: #E64B39;
+	display: block;
+}
+
+.title-cod {
+	font-size: 30px;
+	color: #808B8D;
+	font-weight: bold;
+}
+
+.descricao-venda  {
+	background-color: #ECF0F1;	
+}
+
+.descricao-venda > div {
+	padding: 40px;
+}
+
+.descricao-venda > div:last-child span{
+	display: block;
+	margin-top: 12px;
+	font-size: 16px;
+}
+
+.tabela {
+	border: 2px solid #ECF0F1;
+	padding: 0;
+}
+
+.tabela .table {
+	margin-bottom: 0;
+}
+
+.tabela > div {
+	padding: 0;
+}
+
+.tabela th {
+	background-color: #96A4A5;
+	color: #FFF;
+
+}
+
+.tabela tr {
+	border-bottom: 1px solid #FFF!important;
+}
+
+.tabela tr:after {
+	content: "";
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	display: block;
+}
+
+.total {
+	background-color: #32485F;
+	padding: 40px;
+}
+
+.total  {
+	font-size: 20px;
+	color: #FFF;
+	text-align: right;
+}

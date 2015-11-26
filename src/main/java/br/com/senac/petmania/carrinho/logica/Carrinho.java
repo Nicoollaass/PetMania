@@ -32,4 +32,7 @@ public class Carrinho {
         total -= removido.getProduto().getPreco() * removido.getQuantidade();
     }
     
+    public List<Item> getItens(){
+        return this.itens;
+    }
 }

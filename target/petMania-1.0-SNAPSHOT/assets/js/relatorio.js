@@ -1,22 +1,55 @@
- google.load("visualization", "1.1", {packages:["bar"]});
-  google.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Year', 'Sales', 'Expenses', 'Profit'],
-      ['2014', 1000, 400, 200],
-      ['2015', 1170, 460, 250],
-      ['2016', 660, 1120, 300],
-      ['2017', 1030, 540, 350]
-    ]);
+google.load("visualization", "1.1", {packages:["bar"]});
 
-    var options = {
-      chart: {
-        title: 'Company Performance',
-        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-      }
-    };
 
-    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-    chart.draw(data, options);
-  }
+var obj = {
+
+    "filial": function() {
+
+        google.setOnLoadCallback(drawChart);
+        var jsonData = $.ajax({
+          url: "sistema?param=relatorio&acao=RelatorioFilial",
+          dataType: "json",
+          async: false
+        }).responseText;
+
+        var jsonData = JSON.parse(jsonData)
+        var title = jsonData.map(function(obj){return obj.FILIAL});
+        title.unshift("Filial");
+        var content = jsonData.map(function(obj){return obj.QUANTIDADE});
+        content.unshift("Filiais");
+        var data = google.visualization.arrayToDataTable([
+            title,
+            content
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Company PetMania',
+            subtitle: '4Build IT',
+          }
+        }
+
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+    }  
+}
+
+obj.filial
+
+
+
+
+
+
+
+
+
+function filial() {
+
+       
+}
+
+
+

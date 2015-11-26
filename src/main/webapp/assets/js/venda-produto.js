@@ -1,4 +1,6 @@
 $(function(){
+
+	var id_cliente = 0;
 	
 	//filtrando clientes dinamicamente
 	ajaxClientes();
@@ -8,7 +10,7 @@ $(function(){
 
 	/*logica para adicionar produtos no carrinho ================*/
 	$('body').on('click','.plus', function() {
-		
+
 		var idForm = $(this).data('produto');
 		var form = $("#"+idForm);
 		var valueInputQuant = form.find('input[type="number"]').val();
@@ -33,6 +35,7 @@ $(function(){
 	});	
 	
 	$('body').on('click','.vincular', function() {
+		id_cliente = $(this).next().val();
 	    var step = $(".step-2");
 		step.addClass('step-on');
 		$('html,body').delay(100).animate({scrollTop: step.position().top}, "slow");
@@ -40,10 +43,17 @@ $(function(){
 	});
 
 	$('body').on('click','#finalizar-compra', function() {
+		/*isProduto();*/
 	    var step = $(".step-3");
 		step.addClass('step-on');
 		$('html,body').delay(100).animate({scrollTop: step.position().top}, "slow");
 		listaItensPagamento();
+	});
+
+	$("#efetuar-pagamento").click(function(event) {
+		if(id_cliente > 0){
+			efetuarPagamento(id_cliente);
+		}
 	});
 	
 	
@@ -94,6 +104,7 @@ function ajaxClientes(){
 *@return = null
 */
 function ajaxProdutos(){
+
 	$.ajax({
 		url: 'sistema?param=produto&acao=FilterProduto',
 		type: 'POST',
@@ -101,7 +112,6 @@ function ajaxProdutos(){
 		data: {}
 	})
 	.done(function(data) {
-
 		var html = "";
 		$.each(data, function(i, item) {
 			//montando a tabela de produto com com o json resgatado 
@@ -242,5 +252,44 @@ function listaItensPagamento(){
 		$('.itens-pagamento').html(html);
 	});
 	
+}
+
+/*
+*Função responsavel por efetuar um pagamento
+*@param = formulário para que seja resgatdas as informações
+*/
+
+function efetuarPagamento(id){
+	$.ajax({
+		url: 'sistema?param=venda&acao=Pagamento',
+		type: 'POST',
+		dataType: 'json',
+		data: {id_cliente:id}
+	})
+	.done(function(jsonVendas) {
+		if(jsonVendas.insert == "false"){
+			alert("Erro ao efetuar a venda, por favor tente novamente mais tarde");
+		}else {
+			window.location.href = '/petMania/sistema?param=venda&acao=Pedido&id_venda='+jsonVendas.id_venda;	
+		}
+	});
+	
+}
+
+
+/*
+*Função responsavel por verificar se os produtos no carrinho estão disponiveis
+*@param = null
+*/
+
+function isProduto(){
+	$.ajax({
+		url: 'sistema?param=estoque&acao=Estoque',
+		type: 'POST',
+		dataType: 'json'
+	})
+	.done(function(response) {
+		console.log(response);
+	});
 }
 

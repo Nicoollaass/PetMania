@@ -12,42 +12,76 @@ import com.mysql.fabric.xmlrpc.base.Data;
  * @author HERICK
  */
 public class VendaProdutos {
+    
+    private String codigo = null;
+    private String descricao = null;
+    private double preco = 0;
+    private String cliente = null;
+    private String vendedor = null;
+    private double total = 0;
+    private int qtde = 0;
 
-    private int id_venda_produto = 0;
-    private int id_cliente_prod = 0;
-    private int id_funcionario_prod = 0;
-    private Data data_venda;
-
-    public int getId_venda_produto() {
-        return id_venda_produto;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setId_venda_produto(int id_venda_produto) {
-        this.id_venda_produto = id_venda_produto;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public int getId_cliente_prod() {
-        return id_cliente_prod;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setId_cliente_prod(int id_cliente_prod) {
-        this.id_cliente_prod = id_cliente_prod;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public int getId_funcionario_prod() {
-        return id_funcionario_prod;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setId_funcionario_prod(int id_funcionario_prod) {
-        this.id_funcionario_prod = id_funcionario_prod;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
-    public Data getData_venda() {
-        return data_venda;
+    public String getVendedor() {
+        return vendedor;
     }
 
-    public void setData_venda(Data data_venda) {
-        this.data_venda = data_venda;
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
     }
+
+    public int getQtde() {
+        return qtde;
+    }
+
+    public void setQtde(int qtde) {
+        this.qtde = qtde;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
+    
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
+    
+    
+
+    
 
 }

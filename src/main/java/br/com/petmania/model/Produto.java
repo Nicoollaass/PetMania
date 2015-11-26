@@ -15,8 +15,8 @@ public class Produto {
     private String nome = "";
     private String descricao = "";
     private Date data_entrada;
+    private double preco = 0;
     private Date data_inclusao;
-    private double preco = 0f;
     private int id_categoria = 0;
     private int id_marca = 0;
     
@@ -61,14 +61,6 @@ public class Produto {
         this.data_inclusao = data_inclusao;
     }
 
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
     public int getId_categoria() {
         return id_categoria;
     }
@@ -83,6 +75,14 @@ public class Produto {
 
     public void setId_marca(int id_marca) {
         this.id_marca = id_marca;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
     
     

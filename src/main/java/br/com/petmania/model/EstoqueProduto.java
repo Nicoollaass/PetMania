@@ -15,6 +15,9 @@ public class EstoqueProduto {
     private int id_estoque_prod = 0;
     private Produto produto; 
     private int quantidade = 0;
+    private double valor_uni = 0;
+
+   
     
     public EstoqueProduto(
             int id,String nome, 
@@ -35,6 +38,7 @@ public class EstoqueProduto {
         this.produto.setId_categoria(id_categoria);
         this.produto.setId_marca(id_marca);
     }
+    
 
     public int getId_estoque_prod() {
         return id_estoque_prod;

@@ -7,6 +7,7 @@ package br.com.petmania.dao;
 
 import br.com.petmania.model.EstoqueProduto;
 import br.com.petmania.model.Produto;
+import br.com.petmania.model.SaidaProduto;
 import br.com.senac.petmania.utils.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -75,5 +76,85 @@ public class DAOEstoque {
         }
         
         return listaEstoque;
+    }
+    
+    /**
+     * metodo responsavel por efetuar uma saida de produto
+     * e retorna-los em um array.
+     * @throws SQLException 
+     */
+    public void inserirProduto (SaidaProduto venda) throws SQLException, ClassNotFoundException
+    {   
+        Connection con = new ConnectionFactory().getConnection();
+        try
+        {
+            
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO SAIDA_PRODUTO "
+                                                                            + "(ID_PRODUTO, "
+                                                                            + "QTDE, "
+                                                                            + "VALOR_UNITARIO, "
+                                                                            + "ID_VENDEDOR  , "
+                                                                            + "ID_CLIENTE, "
+                                                                            + "ID_VENDA_PRODUTO) "
+                                                                            + "VALUES (?, ?, ?, ?, ?, ?) ");
+            
+            stmt.setInt(1, venda.getId_produto());
+            stmt.setInt(2, venda.getQtde());
+            stmt.setDouble(3, venda.getValor_unitario());
+            stmt.setInt(4, venda.getId_vendedor());
+            stmt.setInt(5, venda.getId_cliente());
+            stmt.setInt(6, venda.getId_venda_produto());
+            stmt.execute();
+            stmt.close();
+        }
+        catch(SQLException e)
+        {
+            throw new SQLException("Erro ao efetuar uma venda. ", e);
+        }
+        finally
+        {
+            con.close();
+        }
+    }
+    
+     /**
+     * metodo responsavel por verificar disponibilidade do produto em estoque
+     * @return boolean
+     * @throws SQLException 
+     */
+    public boolean isProduto (int id_produto,int qtde) throws SQLException, ClassNotFoundException
+    {   
+        Connection con = new ConnectionFactory().getConnection();
+        boolean check = false;
+        try
+        {
+            EstoqueProduto estoque;
+            PreparedStatement stmt = con.prepareStatement(""
+                                                        + " SELECT * FROM ESTOQUE_PRODUTO "
+                                                        + "WHERE ID_PRODUTO_ESTOQUE = ? "
+                                                        + "AND QUANTIDADE >= ?");
+            stmt.setInt(1, id_produto);
+            stmt.setInt(2, qtde);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next())
+            {
+                check = true;    
+            }
+            rs.close();
+            stmt.close();
+        }
+        
+        catch(SQLException e)
+        {
+            throw new SQLException ("Erro ao buscar produtos no estoque. ", e);
+        }
+        finally
+        {
+            con.close();
+        }
+        
+        return check;
     }
 }

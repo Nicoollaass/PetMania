@@ -141,7 +141,7 @@
                     </div>
                 </div>
                 <div class="form-group finalizar-compra">
-                    <button type="button" class="btn btn-success">Efetuar pagamento</button>
+                    <button type="button" id="efetuar-pagamento" class="btn btn-success ">Efetuar pagamento</button>
                 </div>
             </div>
 
