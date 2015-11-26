@@ -27,7 +27,7 @@ public class EditarCliente implements Logica {
         String descricao = "Editar Cliente";
         req.setAttribute("titulo", titulo);
         req.setAttribute("descricao", descricao);
-        req.setAttribute("action", "/sistema?acao=EditarCliente");
+        req.setAttribute("action", "/sistema?param=clientes&acao=EditarCliente");
 
         //Criando o object para consutas e inserções na base de dados
         DAOCliente dao = new DAOCliente();
@@ -68,7 +68,7 @@ public class EditarCliente implements Logica {
 
                 //Update em cliente
                 dao.alterarCliente(model);
-                res.sendRedirect("sistema?acao=ListarClientes&editar=true");
+                res.sendRedirect("sistema?param=clientes&acao=ListarClientes");
             } else {
                 erroMsg = "Todos os campos devem estar preenchidos";
                 req.setAttribute("erroMsg", erroMsg);

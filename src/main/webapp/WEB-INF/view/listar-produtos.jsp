@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar-clientes
-    Created on : 03/11/2015, 20:33:21
-    Author     : Nicolas
+    Created on : 20/11/2015, 18:05:44
+    Author     : Hp
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,11 +15,11 @@
 <t:defaultTemplate>
 
     <jsp:attribute name="paginaTitulo">
-        Listagem de clientes
+        Listagem de produtos
     </jsp:attribute>
 
     <jsp:attribute name="paginaHead">
-        <link rel="stylesheet" type="text/css" href="<c:url value="assets/css/cliente.css"/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="assets/css/produtos.css"/>"/>
     </jsp:attribute>
 
     <jsp:body>
@@ -35,8 +35,8 @@
 
             <jsp:attribute name="novoregistrobtn">
                 <div class="novo-registro">
-                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?param=clientes&acao=CadastrarCliente"/>">Novo Cliente</a></button>
-                </div>                                                                
+                    <button type="button" class="btn btn-success"><a href="<c:url value="/sistema?param=produto&acao=CadastroProdutos"/>">Novo produto</a></button>
+                </div>
             </jsp:attribute>
         </t:defaultNavSearching>
         <!-- tabela -->
@@ -56,24 +56,28 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
-                        <th>Idade</th>
-                        <th>E-mail</th>
-                        <th>Data inclusão</th>
+                        <th>Descricao</th>
+                        <th>Data entrada</th>
+                        <th>Categoria</th>
+                        <th>Marca</th>
+                        <th>Preco</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${clientes}" var="cliente">
+                    <c:forEach items="${produtos}" var="produto">
                         <tr>
-                            <td><c:out value="${cliente.id_cliente}"/></td>
-                            <td><c:out value="${cliente.nome}"/></td>
-                            <td><c:out value="${cliente.idade}"/></td>
-                            <td><c:out value="${cliente.email}"/></td>
-                            <td><c:out value="${cliente.data_inclusao}"/></td>
+                            <td><c:out value="${produto.id_produto}"/></td>
+                            <td><c:out value="${produto.nome}"/></td>
+                            <td><c:out value="${produto.descricao}"/></td>
+                            <td><c:out value="${produto.data_entrada}"/></td>
+                            <td><c:out value="${produto.id_categoria}"/></td>
+                            <td><c:out value="${produto.id_marca}"/></td>
+                            <td><c:out value="${produto.preco}"/></td>
                             <td>
                                 <button type="button" class="btn btn-info"><a href="">+Info</a></button>
-                                <button type="button" class="btn btn btn-primary"><a href="<c:url value="/sistema?param=clientes&acao=EditarCliente&id=${cliente.id_cliente}"/>">Editar</a></button>
-                                <button type="button" class="btn btn-danger"><a href="<c:url value="/sistema?param=clientes&acao=ExcluirCliente&id=${cliente.id_cliente}"/>">Exluir</a></button>
+                                <button type="button" class="btn btn btn-primary"><a href="<c:url value="/sistema?param=produto&acao=EditarProduto&id=${produto.id_produto}"/>">Editar</a></button>
+                                <button type="button" class="btn btn-danger"><a href="<c:url value="/sistema?param=produto&acao=ExcluirProduto&id=${produto.id_produto}"/>">Excluir</a></button>
                             </td>
                         </tr>
                     </c:forEach>
@@ -83,4 +87,3 @@
     </jsp:body>
 
 </t:defaultTemplate>
-

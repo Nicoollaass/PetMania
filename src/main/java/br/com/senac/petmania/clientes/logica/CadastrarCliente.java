@@ -28,7 +28,7 @@ public class CadastrarCliente implements Logica{
         String descricao = "Cadastrar Cliente";
         req.setAttribute("titulo", titulo);
         req.setAttribute("descricao", descricao);
-        req.setAttribute("action", "/sistema?acao=CadastroCliente");
+        req.setAttribute("action", "/sistema?param=clientes&acao=CadastrarCliente");
         if(method.equals("POST")){
             //recupera os dados
             String nome  = req.getParameter("cliente_nome");
@@ -67,7 +67,7 @@ public class CadastrarCliente implements Logica{
                 //salvando cliente
                 DAOCliente dao = new DAOCliente();
                 dao.inserirCliente(model);
-                res.sendRedirect("sistema?acao=ListarClientes&salvar=true");
+                res.sendRedirect("sistema?param=clientes&acao=ListarClientes");
             }else {
                 erroMsg = "Todos os campos devem estar preenchidos";
                 req.setAttribute("erroMsg", erroMsg);

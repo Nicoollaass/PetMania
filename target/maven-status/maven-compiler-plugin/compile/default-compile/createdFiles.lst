@@ -1,4 +1,5 @@
 br\com\senac\petmania\produto\logica\FilterProduto.class
+br\com\senac\petmania\produto\logica\CadastroProdutos.class
 br\com\petmania\model\VendaServico.class
 br\com\petmania\model\ItemVendaProduto.class
 br\com\senac\petmania\carrinho\logica\Item.class
@@ -26,6 +27,7 @@ br\com\petmania\model\VendaProdutos.class
 br\com\petmania\model\TipoAnimal.class
 br\com\petmania\model\Usuario.class
 br\com\petmania\dao\DAOFuncionario.class
+br\com\senac\petmania\carrinho\logica\RemoverCarrinho.class
 br\com\petmania\model\Animal.class
 br\com\senac\petmania\carrinho\logica\Carrinho.class
 br\com\petmania\dao\DAOAnimal.class
@@ -37,6 +39,7 @@ br\com\senac\petmania\animais\logica\FilterAnimais.class
 br\com\petmania\model\LogSaidaProduto.class
 br\com\petmania\model\ProdutoPertencente.class
 br\com\petmania\dao\DAOUsuario.class
+br\com\petmania\dao\DAOEstoque.class
 br\com\petmania\model\ItemVendaServico.class
 br\com\senac\petmania\carrinho\logica\AdicionarCarrinho.class
 br\com\senac\petmania\clientes\logica\ListarClientes.class
