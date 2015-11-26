@@ -47,7 +47,7 @@ function drawChart() {
             }).responseText;
 
 
-            var jsonData = JSON.parse(jsonData)
+            var jsonData = JSON.parse(jsonData);
             var title = jsonData.map(function(obj){return obj.FILIAL});
             title.unshift("Filial");
             var content = jsonData.map(function(obj){return obj.QUANTIDADE});
@@ -66,7 +66,7 @@ function drawChart() {
                   async: false
             }).responseText;
 
-            var jsonData = JSON.parse(jsonData)
+            var jsonData = JSON.parse(jsonData);
             var title = jsonData.map(function(obj){return obj.DESCRICAO});
             title.unshift("Produtos");
             var content = jsonData.map(function(obj){return obj.QUANTIDADE});
@@ -89,7 +89,7 @@ function drawChart() {
 
 
             /*passando para json*/
-            var jsonData = JSON.parse(jsonData)
+            var jsonData = JSON.parse(jsonData);
             var title = jsonData.map(function(obj){return obj.NOME});
             title.unshift("Nome");
             var content = jsonData.map(function(obj){return obj.QUANTIDADE});

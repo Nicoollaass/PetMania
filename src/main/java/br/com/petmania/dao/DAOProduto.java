@@ -242,6 +242,7 @@ public class DAOProduto {
             while (rs.next())
             {
                 produto = new Produto();
+                produto.setId_produto(rs.getInt("ID_PRODUTO"));
                 produto.setNome(rs.getString("NOME"));
                 produto.setDescricao(rs.getString("DESCRICAO"));   
                 produto.setPreco(rs.getDouble("PRECO"));

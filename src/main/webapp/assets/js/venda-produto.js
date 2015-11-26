@@ -43,11 +43,19 @@ $(function(){
 	});
 
 	$('body').on('click','#finalizar-compra', function() {
-		/*isProduto();*/
-	    var step = $(".step-3");
-		step.addClass('step-on');
-		$('html,body').delay(100).animate({scrollTop: step.position().top}, "slow");
-		listaItensPagamento();
+		
+		produto = isProduto();
+		if(produto == null){
+			var step = $(".step-3");
+			step.addClass('step-on');
+			$('html,body').delay(100).animate({scrollTop: step.position().top}, "slow");
+			listaItensPagamento();	
+		}else {
+			alert("O produto "+produto+" está com uma quantidade inválida");
+		}
+
+
+	    
 	});
 
 	$("#efetuar-pagamento").click(function(event) {
@@ -269,6 +277,8 @@ function efetuarPagamento(id){
 	.done(function(jsonVendas) {
 		if(jsonVendas.insert == "false"){
 			alert("Erro ao efetuar a venda, por favor tente novamente mais tarde");
+		}else if(jsonVendas.insert == "quant_invalid"){
+			alert("Quantidade de produto inválida");
 		}else {
 			window.location.href = '/petMania/sistema?param=venda&acao=Pedido&id_venda='+jsonVendas.id_venda;	
 		}
@@ -283,13 +293,18 @@ function efetuarPagamento(id){
 */
 
 function isProduto(){
-	$.ajax({
-		url: 'sistema?param=estoque&acao=Estoque',
-		type: 'POST',
-		dataType: 'json'
-	})
-	.done(function(response) {
-		console.log(response);
-	});
+	var produto = $.ajax({
+          url: "sistema?param=produto&acao=Estoque",
+          dataType: "json",
+          async: false
+    }).responseText;
+	
+	var jsonData = JSON.parse(produto);
+	console.log(jsonData);
+	
+	if(jsonData == null){
+		return null;
+	}
+	return jsonData.descricao;
 }
 

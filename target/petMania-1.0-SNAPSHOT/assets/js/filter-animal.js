@@ -10,11 +10,15 @@ $(function(){
     function searchAnimals(){
         var filtros = $('#filter-dinamic').serialize();
         $.ajax({
-            url: 'http://localhost:8080/petMania/sistema?acao=FilterAnimais',
+            url: 'http://localhost:8080/petMania/sistema?param=animais&acao=FilterAnimais',
             type: 'POST',
             dataType: 'json',
             data: filtros,
+            beforeSend: function() {
+                $(".container-load").fadeIn();   
+            },
             success: function(data){
+                $(".container-load").delay(1000).fadeOut();
                 var table = null;
                 $.each(data, function(i, item) {
                     table += "<tr>"+
