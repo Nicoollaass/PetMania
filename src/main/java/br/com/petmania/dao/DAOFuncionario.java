@@ -48,18 +48,21 @@ public class DAOFuncionario
    }
 
 
-  public void inserirFuncionario (Funcionario funcionario) throws SQLException
+  public void inserirFuncionario (Funcionario funcionario) throws SQLException, ClassNotFoundException
     {
+        
+        Connection con = new ConnectionFactory().getConnection();
         try
         {
             
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO cliente (nome, "
-                                                                             + "id_tipo_funcionario, "
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO funcionario (nome, "
+                                                                             + "id_tipo_funionario, "
                                                                              + "data_nascimento, "
                                                                              + "email, "
-                                                                             + "cpf )"
+                                                                             + "cpf,"
+                                                                             + "id_locacao )" 
                                                                              
-                                                            + "VALUES (?, ?, ?, ?, ?,)");
+                                                            + "VALUES (?, ?, ?, ?, ?, ?)");
             
             
             stmt.setString(1, funcionario.getNome());
@@ -67,11 +70,12 @@ public class DAOFuncionario
             stmt.setDate(3, funcionario.getData_nascimento());
             stmt.setString(4, funcionario.getEmail());
             stmt.setString(5, funcionario.getCpf());
+            stmt.setInt(6, funcionario.getId_locacao());
            
             
             //ResultSet rs = stmt.executeQuery();
             
-            //rs.close();
+            stmt.execute();
             stmt.close();
         }
         catch(SQLException e)
@@ -84,8 +88,10 @@ public class DAOFuncionario
         }
     }
   
-    public List<Funcionario> buscarFuncionario (Funcionario funcionario) throws SQLException
+    public List<Funcionario> buscarFuncionario () throws SQLException, ClassNotFoundException
     {
+        
+        Connection con = new ConnectionFactory().getConnection();
         
         List<Funcionario> listaFuncionarios = new ArrayList();
         try
@@ -97,12 +103,16 @@ public class DAOFuncionario
             
             while (rs.next())
             {
-                funcionario.setCpf(rs.getString("NOME"));
-                funcionario.setData_nascimento(rs.getDate("ID_TIPO_FUNCIONARIO"));
-                funcionario.setEmail(rs.getString("DATA_NASCIMENTO"));
-                funcionario.setIdade(rs.getInt("EMAIL"));
-                funcionario.setNome(rs.getString("CPF"));
-                funcionario.setSexo(rs.getString("DATA_INCLUSAO"));
+                Funcionario funcionario = new Funcionario();
+                
+                funcionario.setId_funcionario(rs.getInt("ID_FUNCIONARIO"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setData_nascimento(rs.getDate("DATA_NASCIMENTO"));
+                funcionario.setId_locacao(rs.getInt("ID_LOCACAO"));
+                funcionario.setEmail(rs.getString("EMAIL"));
+                //funcionario.setIdade(rs.getInt("IDADE"));
+                funcionario.setNome(rs.getString("NOME"));
+                
                 
                 
                 listaFuncionarios.add(funcionario);
