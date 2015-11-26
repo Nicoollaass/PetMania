@@ -110,8 +110,9 @@ public class EditarProduto implements Logica
                 req.setAttribute("categoria", categoria);
         
                 int id = utils.parseStringInt(identificador);
-                Produto produtos = dao.getProduto(id);
-                req.setAttribute("produto", produtos);
+                Produto produto = dao.getProduto(id);
+                System.out.println(produto.getNome());
+                req.setAttribute("produto", produto);
             }
         }
         
